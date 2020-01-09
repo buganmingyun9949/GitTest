@@ -1,0 +1,74 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v2.0": {},
+    ".NETFramework,Version=v3.5": {},
+    ".NETFramework,Version=v4.0": {},
+    ".NETFramework,Version=v4.5": {}
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v2.0": [],
+    ".NETFramework,Version=v3.5": [],
+    ".NETFramework,Version=v4.0": [],
+    ".NETFramework,Version=v4.5": []
+  },
+  "packageFolders": {
+    "C:\\Users\\lz198\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "4.3.0",
+    "restore": {
+      "projectUniqueName": "D:\\项目\\PC端\\trunk\\src\\FSLib.App.SimpleUpdater\\FSLib.App.SimpleUpdater.csproj",
+      "projectName": "fishlee.net.simpleupdater",
+      "projectPath": "D:\\项目\\PC端\\trunk\\src\\FSLib.App.SimpleUpdater\\FSLib.App.SimpleUpdater.csproj",
+      "packagesPath": "C:\\Users\\lz198\\.nuget\\packages\\",
+      "outputPath": "D:\\项目\\PC端\\trunk\\src\\FSLib.App.SimpleUpdater\\obj\\",
+      "projectStyle": "PackageReference",
+      "crossTargeting": true,
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\lz198\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net20",
+        "net35",
+        "net40",
+        "net45"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net20": {
+          "projectReferences": {}
+        },
+        "net35": {
+          "projectReferences": {}
+        },
+        "net40": {
+          "projectReferences": {}
+        },
+        "net45": {
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net20": {},
+      "net35": {},
+      "net40": {},
+      "net45": {}
+    }
+  }
+}

@@ -1,0 +1,261 @@
+﻿<UserControl x:Class="Plugin.Exam.Qs.View.SyncPredView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Plugin.Exam.Qs.View"
+             xmlns:domain="clr-namespace:ST.Common.Domain;assembly=ST.Common"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:subItem="clr-namespace:Plugin.Exam.Qs.View.SubItem"
+             mc:Ignorable="d"  Width="798" Height="700"
+             d:DesignHeight="670" d:DesignWidth="780" FontFamily="Microsoft YaHei">
+    <!-- 听小对话 回答问题 -->
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/SliderEx.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ButtonEx.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ExamStyleEx.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/DialogStyleEx.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/CommonStyle.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ScrollViewerEx.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <LinearGradientBrush x:Key="DottedLineStyle" SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Color="#eff5f2" Offset="0"/>
+                    <GradientStop Color="#eff5f2" Offset="0.2"/>
+                    <GradientStop Color="Transparent" Offset="0.4"/>
+                    <GradientStop Color="Transparent" Offset="0.6"/>
+                    <GradientStop Color="#eff5f2" Offset="0.8"/>
+                    <GradientStop Color="#eff5f2" Offset="1"/>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid Background="#f6f6f6">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6"></RowDefinition>
+                <RowDefinition Height="100*"></RowDefinition>
+                <RowDefinition Height="4"></RowDefinition>
+                <RowDefinition Height="86"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1" Width="788" Height="604" Margin="0 0 0 0" HorizontalAlignment="Center">
+                <Grid.Background>
+                    <ImageBrush ImageSource="../Resources/syncbg.png" Stretch="UniformToFill"></ImageBrush>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="90"></RowDefinition>
+                    <RowDefinition Height="150"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="90"></RowDefinition>
+                    <RowDefinition Height="100"></RowDefinition>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid Width="66" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="47 60 0 0">
+                        <Grid.Background>
+                            <ImageBrush ImageSource="../Resources/synctag.png"></ImageBrush>
+                        </Grid.Background>
+                        <TextBlock Text="{Binding SyncTitleIndexStyle, FallbackValue=1/20}" Style="{DynamicResource SyncTitleIndexStyle}" HorizontalAlignment="Right" Margin="0 0 10 0"></TextBlock>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1" Height="140"  Margin="60 0 60 0" >
+                    <ScrollViewer x:Name="SyncContentSv" Padding="0 6 0 6" Focusable="False" >
+                        <!--<StackPanel x:Name="QsItemContent"  HorizontalAlignment="Center" VerticalAlignment="Bottom" x:FieldModifier="public">-->
+                        <WrapPanel x:Name="QsItemContent" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="50 0 66 0">
+                                <TextBlock Text="It was also the first time an Olympic gold medal for hurdling was hung round the neck of a sportsperson from an Asian country.It was also the first time an Olympic gold medal for hurdling was hung round the neck of a sportsperson from an Asian country." FontSize="26" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"></TextBlock>
+                            </WrapPanel>
+                        <!--</StackPanel>-->
+                    </ScrollViewer>
+                </Grid>
+                <Grid Grid.Row="2" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <!--<Button  materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                            materialDesign:ButtonProgressAssist.IsIndeterminate="{Binding PlayingIconEnable, FallbackValue=False, UpdateSourceTrigger=PropertyChanged}"
+                             materialDesign:ButtonProgressAssist.IndicatorBackground="White"
+                             materialDesign:ButtonProgressAssist.IndicatorForeground="#30CC75"  Foreground="{DynamicResource GrayBrush6}"   
+                             Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                             Background="White" BorderBrush="Transparent" BorderThickness="0" 
+                             Focusable="False" Width="26" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left"
+                            Command="{Binding PlayAudioCommand}">
+                            <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" Kind="VolumeHigh" Foreground="#30CC75" />
+                        </Button>-->
+                    </Grid>
+                    <Grid Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock   Text="{Binding SyncQsYsContent,FallbackValue=''}" Style="{DynamicResource SyncQsWordStyle1}"></TextBlock>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Border x:Name="FiveStarBoxBorder" CornerRadius="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="540" Height="70" BorderThickness="2" Padding="6 0 6 0" BorderBrush="{DynamicResource DottedLineStyle}" >
+                        <Grid x:Name="FiveStarBox">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100*"></ColumnDefinition>
+                                <ColumnDefinition Width="100*"></ColumnDefinition>
+                                <ColumnDefinition Width="100*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <!--<Grid Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="32"></RowDefinition>
+                                <RowDefinition Height="32"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 2">
+                                    <Image Source="../Resources/star_0_1.png" Width="100"></Image>
+                            </Grid>
+                            <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 4 0 0">
+                                <TextBlock Text="流畅度" Foreground="#aaaaaa" FontSize="12"></TextBlock>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="32"></RowDefinition>
+                                <RowDefinition Height="32"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 2">
+                                <Image Source="../Resources/star_0_1.png" Width="100"></Image>
+                            </Grid>
+                            <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 4 0 0">
+                                <TextBlock Text="准确度" Foreground="#aaaaaa" FontSize="12"></TextBlock>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="32"></RowDefinition>
+                                <RowDefinition Height="32"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 2">
+                                <Image Source="../Resources/star_0_1.png" Width="100"></Image>
+                            </Grid>
+                            <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 4 0 0">
+                                <TextBlock Text="完整度" Foreground="#aaaaaa" FontSize="12"></TextBlock>
+                            </Grid>
+                        </Grid>-->
+                        </Grid>
+                    </Border>
+                </Grid>
+                <Grid Grid.Row="4" >
+                    <Grid x:Name="ScoreBoxView" Width="560" Height="70" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10"
+                          x:FieldModifier="public">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--<subItem:HistoryScoreItemView Grid.Column="0"></subItem:HistoryScoreItemView>
+                    <subItem:HistoryScoreItemView Grid.Column="1" ></subItem:HistoryScoreItemView>-->
+                        <!--<subItem:HistoryScoreItemView Grid.Column="2" Margin="20 0 10 0" VerticalAlignment="Center"></subItem:HistoryScoreItemView>-->
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="3" Margin="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!--<Line Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" X1="0" X2="780" Margin="0 4 0 0" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="#EAEAEA" ></Line>-->
+                <Grid Grid.Column="0" HorizontalAlignment="Center" Margin="0" Height="10">
+                    <Slider IsEnabled="False"  Margin="1 0 1 0" Maximum="{Binding TxtTotalTime, FallbackValue=100}" Minimum="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource CountDownProgress}" Value="{Binding TxtPlayingTime, FallbackValue=10}" Height="8" Foreground="#30CC75" Canvas.Left="0" Width="788" />
+                </Grid>
+                <Grid Grid.Row="1" HorizontalAlignment="Center" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" >
+                        <Button  Margin="10" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                                 materialDesign:ButtonProgressAssist.IsIndeterminate="{Binding PlayingIconEnable, FallbackValue=False, UpdateSourceTrigger=PropertyChanged}"
+                                 materialDesign:ButtonProgressAssist.IndicatorBackground="Transparent"
+                                 materialDesign:ButtonProgressAssist.IndicatorForeground="#30CC75"  Foreground="{DynamicResource GrayBrush6}"   
+                                 Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                                 Background="#30CC75" BorderBrush="Transparent" BorderThickness="0" 
+                                 Focusable="False" Width="36" Height="36" VerticalAlignment="Top" HorizontalAlignment="Left"
+                                 Command="{Binding PlayAudioCommand}" SnapsToDevicePixels="True" >
+                            <materialDesign:PackIcon Width="22" Height="22"  Padding="10"  HorizontalAlignment="Center" VerticalAlignment="Center" Kind="VolumeHigh" Foreground="White" />
+                        </Button>
+                    </Grid>
+                    <Grid Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button x:Name="BtnRecord" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10"
+                                Width="52" Height="52" 
+                                materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                                materialDesign:ButtonProgressAssist.IsIndeterminate="{Binding RecordingEnable, FallbackValue=False, UpdateSourceTrigger=PropertyChanged}"
+                                materialDesign:ButtonProgressAssist.IndicatorBackground="Transparent"
+                                materialDesign:ButtonProgressAssist.IndicatorForeground="#30CC75"  
+                                Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                                Background="#30CC75" Foreground="White" BorderThickness="0" BorderBrush="Transparent"
+                                ToolTip="开始录音"
+                                Command="{Binding RecordingCommand}"
+                                FocusVisualStyle="{x:Null}">
+                        <materialDesign:PackIcon
+                                Kind="Microphone"
+                                Height="32"
+                                Width="32" />
+                    </Button>
+                </Grid>
+                <Grid Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" >
+                    <Button x:Name="BtnNext" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10" Width="36" Height="36"
+                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="False"
+                                Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" 
+                                Background="#30CC75"  Foreground="White" BorderThickness="0" BorderBrush="Transparent"
+                                ToolTip="下一个"
+                                FocusVisualStyle="{x:Null}"
+                                Command="{Binding NextOneCommand}">
+                        <materialDesign:PackIcon
+                                Kind="SkipNext"
+                                Height="22"
+                                Width="22" />
+                    </Button>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+        </Grid>
+        <Grid Margin="0 65 45 0" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" >
+            <!--<materialDesign:PackIcon Foreground="#EFEFEF" Background="#AAAAAA"
+                                                 Kind="HelpCircle"
+                                                 Height="28"
+                                                 Width="28" BorderBrush="Transparent" BorderThickness="0"
+                                                 Focusable="False" FocusVisualStyle="{x:Null}">
+                <materialDesign:PackIcon.Clip>
+                    <EllipseGeometry RadiusX="11" RadiusY="11" Center="14, 14"></EllipseGeometry>
+                </materialDesign:PackIcon.Clip>
+                <materialDesign:PackIcon.ToolTip>
+                    <ToolTip Style="{ DynamicResource DefaultToolTipStyle}" Background="Transparent" >
+                        <Grid Width="264">
+                            <Image Source="../Resources/yanseshuoming.png" Width="262" Height="130"></Image>
+                        </Grid>
+                    </ToolTip>
+                </materialDesign:PackIcon.ToolTip>
+            </materialDesign:PackIcon>-->
+            <materialDesign:PackIcon Foreground="#EFEFEF" Background="#AAAAAA"
+                                     Kind="HelpCircle"
+                                     Height="28"
+                                     Width="28" BorderBrush="Transparent" BorderThickness="0"
+                                     Focusable="False" FocusVisualStyle="{x:Null}">
+                <materialDesign:PackIcon.Clip>
+                    <EllipseGeometry RadiusX="11" RadiusY="11" Center="14, 14"></EllipseGeometry>
+                </materialDesign:PackIcon.Clip>
+                <materialDesign:PackIcon.ToolTip>
+                    <ToolTip Style="{ DynamicResource DefaultToolTipUserAlignmentStyle}"  Background="#EFEFEF" Height="160" Width="294" HorizontalOffset="-274" HorizontalAlignment="Right" >
+                        <Image Source="../Resources/yanseshuoming.png" Width="262" Height="130"></Image>
+                    </ToolTip>
+                </materialDesign:PackIcon.ToolTip>
+            </materialDesign:PackIcon>
+        </Grid>
+        <Grid Margin="620 214 0 0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Height="84">
+            <StackPanel x:Name="ScorePanel" HorizontalAlignment="Center"  Background="Transparent">
+                <WrapPanel x:Name="ScoreInfopanel" HorizontalAlignment="Center">
+                    <Image Source="../Resources/6.png" Width="36" Height="56"></Image>
+                    <Image Source="../Resources/6.png" Width="36" Height="56"></Image>
+                    <Image Source="../Resources/6.png" Width="36" Height="56"></Image>
+                </WrapPanel>
+                <Image Source="../Resources/score_botton.png"></Image>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

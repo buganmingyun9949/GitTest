@@ -1,0 +1,6 @@
+D:\项目\PC端\trunk\src\ST.Models\bin\Debug\ST.Models.dll
+D:\项目\PC端\trunk\src\ST.Models\bin\Debug\ST.Models.pdb
+D:\项目\PC端\trunk\src\ST.Models\obj\Debug\ST.Models.dll
+D:\项目\PC端\trunk\src\ST.Models\obj\Debug\ST.Models.pdb
+D:\项目\PC端\trunk\src\ST.Models\obj\Debug\ST.Models.csprojAssemblyReference.cache
+D:\项目\PC端\trunk\src\ST.Models\obj\Debug\ST.Models.csproj.CoreCompileInputs.cache

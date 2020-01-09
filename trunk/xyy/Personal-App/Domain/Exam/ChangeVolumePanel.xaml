@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="Personal_App.Domain.Exam.ChangeVolumePanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Personal_App.Domain.Exam"
+             mc:Ignorable="d" 
+             d:DesignHeight="92" d:DesignWidth="220" FontFamily="Microsoft YaHei">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/SliderEx.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="#f6f6f6">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="45*"></RowDefinition>
+            <RowDefinition Height="8"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Focusable="False" Foreground="#AAAAAA" FontSize="16" Text="放音音量调节" FontFamily="SimSun"/>
+        <Grid Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" >
+            <Slider x:Name="VoiceVolumeSlider" Width="160" Margin="0" Maximum="100" Minimum="0" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource VoiceVolumeSliderEx}" Foreground="#FF6161" ValueChanged="VoiceVolumeSlider_ValueChanged" />
+            <!--Foreground="#ff6161"-->
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="Plugin.Exam.Qs.View.SubItem.HistoryScoreItemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Plugin.Exam.Qs.View.SubItem"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:domain="clr-namespace:ST.Common.Domain;assembly=ST.Common"
+             mc:Ignorable="d"  Width="160" Height="68"
+             d:DesignHeight="68" d:DesignWidth="160">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/SliderEx.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ButtonEx.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ExamStyleEx.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/DialogStyleEx.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <LinearGradientBrush x:Key="DottedLineStyle" SpreadMethod="Repeat" StartPoint="0,5" EndPoint="5,0" MappingMode="Absolute">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Color="#eff5f2" Offset="0"/>
+                    <GradientStop Color="#eff5f2" Offset="0.2"/>
+                    <GradientStop Color="Transparent" Offset="0.4"/>
+                    <GradientStop Color="Transparent" Offset="0.6"/>
+                    <GradientStop Color="#eff5f2" Offset="0.8"/>
+                    <GradientStop Color="#eff5f2" Offset="1"/>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Border BorderThickness="2" BorderBrush="{DynamicResource DottedLineStyle}" Width="160" Height="68">
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="88"></ColumnDefinition>
+                <ColumnDefinition Width="70"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="TxtTitleName" Grid.Row="0" Grid.Column="0" Text="{Binding TitleName, FallbackValue=历史最高:}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 4 0" Foreground="#aaaaaa" FontSize="12"></TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding ScoreValue, FallbackValue=100分}" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="2 0 0 0" Foreground="#aaaaaa" FontSize="12"></TextBlock>
+            <Button Grid.Row="1" Grid.ColumnSpan="2" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" 
+                                 materialDesign:ButtonProgressAssist.IsIndeterminate="{Binding PlayingIconEnable, FallbackValue=False, UpdateSourceTrigger=PropertyChanged}"
+                    materialDesign:ButtonProgressAssist.IndicatorBackground="White"
+                    materialDesign:ButtonProgressAssist.IndicatorForeground="#30CC75"  Foreground="{DynamicResource GrayBrush6}"   
+                    Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                    Background="White" BorderBrush="Transparent" BorderThickness="0" 
+                    Focusable="False" Width="22" Height="22" VerticalAlignment="Top" HorizontalAlignment="Center"
+                                 Command="{Binding PlayUserAudioCommand}"
+                    FocusVisualStyle="{x:Null}">
+                <materialDesign:PackIcon Width="16" Height="16" HorizontalAlignment="Center" VerticalAlignment="Center" Kind="VolumeHigh" Foreground="#30CC75" />
+            </Button>
+        </Grid>
+    </Border>
+</UserControl>

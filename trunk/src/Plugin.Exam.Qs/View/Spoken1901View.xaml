@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="Plugin.Exam.Qs.View.Spoken1901View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Plugin.Exam.Qs.View"
+             xmlns:domain="clr-namespace:ST.Common.Domain;assembly=ST.Common"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="780" FontFamily="Microsoft YaHei">
+    <!-- 听小对话 回答问题 -->
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/SliderEx.xaml">
+                </ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ButtonEx.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ExamStyleEx.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/DialogStyleEx.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <domain:ValueConverter x:Key="valueConverter"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="380*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="{Binding QsTitle,FallbackValue=第五题 填空并转述。（共10分）}" Style="{DynamicResource BigTitleStyle}" Margin="40 40 0 8" FontFamily="SimSun" TextWrapping="WrapWithOverflow"></TextBlock>
+            <TextBlock Grid.Row="1" Text="{Binding QsTitleContent,FallbackValue=第一节 听一段独白或短文，根据所听内容补全下列表格。听录音前，你有30秒钟的阅题时间，听完录音后，你有90秒钟的答题时间。每空一词，独白或短文播放两遍。}" Style="{DynamicResource SecondTitleStyle}" Margin="90 10 68 10" FontFamily="SimSun" TextWrapping="WrapWithOverflow" LineHeight="30"></TextBlock>
+            <!--<TextBlock Grid.Row="2" Text="{Binding TitleTwo, FallbackValue='听下面一段对话，回答第 1 至第 2 题。现在你有 10 秒钟的时间阅读这两道小题。'}" Style="{DynamicResource SecondTitleStyle}" Margin="90 10 68 0"  Visibility="{Binding TitleTextVisibility,FallbackValue=Visible}" FontFamily="SimSun" TextWrapping="WrapWithOverflow"></TextBlock>-->
+            <Grid Grid.Row="2" Visibility="{Binding ChoiceTextVisibility,FallbackValue=Visible}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="120*"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Image  MaxHeight="300" MaxWidth="580" Stretch="Uniform" Source="{Binding QsInfoImage}"></Image>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="{Binding QsItemContent, FallbackValue= 要点提示：! }" Style="{DynamicResource QsPromptKeyStyle}" Width="640" Margin="90 10 20 2" TextWrapping="WrapWithOverflow" xml:space="preserve"></TextBlock>
+                    <Grid Grid.Row="1" Margin="90 10 20 2" >
+                        <!--Collapsed-->
+                        <WrapPanel Visibility="{Binding ShowTextBox, FallbackValue=Collapsed }" IsEnabled="{Binding EnableTextBox, FallbackValue=True}">
+                            <WrapPanel Margin="4">
+                                <TextBlock Text="1." FontSize="18" Margin="4 0 4 0"></TextBlock>
+                                <TextBox Width="180"  Text="{Binding TxtAnswer1, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                            </WrapPanel>
+                            <WrapPanel Margin="4">
+                                <TextBlock Text="2." FontSize="18" Margin="4 0 4 0"></TextBlock>
+                                <TextBox Width="180"  Text="{Binding TxtAnswer2, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                            </WrapPanel>
+                            <WrapPanel Margin="4">
+                                <TextBlock Text="3." FontSize="18" Margin="4 0 4 0"></TextBlock>
+                                <TextBox Width="180"  Text="{Binding TxtAnswer3, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                            </WrapPanel>
+                            <WrapPanel Margin="4">
+                                <TextBlock Text="4." FontSize="18" Margin="4 0 4 0"></TextBlock>
+                                <TextBox Width="180" Text="{Binding TxtAnswer4, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                            </WrapPanel>
+                            <WrapPanel Margin="4">
+                                <TextBlock Text="5." FontSize="18" Margin="4 0 4 0"></TextBlock>
+                                <TextBox Width="180" Text="{Binding TxtAnswer5, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                            </WrapPanel>
+                        </WrapPanel>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

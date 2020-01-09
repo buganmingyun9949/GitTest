@@ -1,0 +1,15 @@
+D:\项目\PC端\trunk\src\Framework.VoiceRecorder.Audio\bin\Debug\Framework.VoiceRecorder.Audio.dll
+D:\项目\PC端\trunk\src\Framework.VoiceRecorder.Audio\bin\Debug\Framework.VoiceRecorder.Audio.pdb
+D:\项目\PC端\trunk\src\Framework.VoiceRecorder.Audio\bin\Debug\Framework.Logging.dll
+D:\项目\PC端\trunk\src\Framework.VoiceRecorder.Audio\bin\Debug\NAudio.dll
+D:\项目\PC端\trunk\src\Framework.VoiceRecorder.Audio\bin\Debug\WaveLibMixer.dll
+D:\项目\PC端\trunk\src\Framework.VoiceRecorder.Audio\bin\Debug\log4net.dll
+D:\项目\PC端\trunk\src\Framework.VoiceRecorder.Audio\bin\Debug\Framework.Logging.pdb
+D:\项目\PC端\trunk\src\Framework.VoiceRecorder.Audio\bin\Debug\Framework.Logging.dll.config
+D:\项目\PC端\trunk\src\Framework.VoiceRecorder.Audio\bin\Debug\NAudio.xml
+D:\项目\PC端\trunk\src\Framework.VoiceRecorder.Audio\bin\Debug\log4net.xml
+D:\项目\PC端\trunk\src\Framework.VoiceRecorder.Audio\obj\Debug\Framework.VoiceRecorder.Audio.csprojAssemblyReference.cache
+D:\项目\PC端\trunk\src\Framework.VoiceRecorder.Audio\obj\Debug\Framework.VoiceRecorder.Audio.csproj.CopyComplete
+D:\项目\PC端\trunk\src\Framework.VoiceRecorder.Audio\obj\Debug\Framework.VoiceRecorder.Audio.dll
+D:\项目\PC端\trunk\src\Framework.VoiceRecorder.Audio\obj\Debug\Framework.VoiceRecorder.Audio.pdb
+D:\项目\PC端\trunk\src\Framework.VoiceRecorder.Audio\obj\Debug\Framework.VoiceRecorder.Audio.csproj.CoreCompileInputs.cache

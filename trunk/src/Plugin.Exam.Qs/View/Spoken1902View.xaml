@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="Plugin.Exam.Qs.View.Spoken1902View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Plugin.Exam.Qs.View"
+             xmlns:domain="clr-namespace:ST.Common.Domain;assembly=ST.Common"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="780" FontFamily="Microsoft YaHei">
+    <!-- 听小对话 回答问题 -->
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/SliderEx.xaml">
+                </ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ButtonEx.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ExamStyleEx.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/DialogStyleEx.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <domain:ValueConverter x:Key="valueConverter"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="380*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="{Binding QsTitle,FallbackValue=一、短文理解（共 8 小题；每小题 1.5 分，共 12 分）}"
+                       Style="{DynamicResource BigTitleStyle}" Margin="40 40 0 8" FontFamily="SimSun"
+                       TextWrapping="WrapWithOverflow">
+            </TextBlock>
+            <TextBlock Grid.Row="1"
+                       Text="{Binding QsTitleContent,FallbackValue=本部分共有5道小题，你将听到两段较长对话，每段对话听两遍。在听每段对话前，你将有时间阅读相关小题，每小题5秒钟；听完后，每小题你还有5秒钟的时间在屏幕上点击你认为最合适的备选答案。}"
+                       Style="{DynamicResource SecondTitleStyle}" Margin="90 10 68 0" FontFamily="SimSun"
+                       TextWrapping="WrapWithOverflow" LineHeight="30">
+            </TextBlock>
+            <TextBlock Grid.Row="2" Text="{Binding TitleTwo, FallbackValue='现在听一段较长对话，回答第6~7两小题。'}" Style="{DynamicResource SecondTitleStyle}" Margin="90 10 40 10"  Visibility="{Binding TitleTextVisibility,FallbackValue=Visible}" FontFamily="SimSun" TextWrapping="WrapWithOverflow"></TextBlock>
+            <Grid Grid.Row="3">
+                <Image  MaxHeight="300" MaxWidth="580" Stretch="Uniform" Source="{Binding QsInfoImage}"></Image>
+            </Grid>
+            <StackPanel Grid.Row="4" x:Name="SubChoiceQsContent" x:FieldModifier="public">
+                <!--Visible Collapsed-->
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

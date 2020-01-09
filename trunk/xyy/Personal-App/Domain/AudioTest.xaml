@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="Personal_App.Domain.AudioTest"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="570" d:DesignWidth="780" Background="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="220"></RowDefinition>
+            <RowDefinition Height="280"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!-- 图示部分开始 -->
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFA200" FontSize="18" Text="请按照图示佩戴耳机"></TextBlock>
+            <Image Grid.Row="1" Source="/Resources/audio_test.png"></Image>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="384"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFA200" FontSize="12" Text="话筒略低于嘴吧，距离嘴吧 2-3 厘米"></TextBlock>
+                <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFA200" FontSize="12" Width="90" TextWrapping="Wrap" TextAlignment="Center" Text="录音过程用手触碰话筒"></TextBlock>
+                <TextBlock Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFA200" FontSize="12" Width="90" TextWrapping="Wrap" TextAlignment="Center" Text="话筒距离太远"></TextBlock>
+                <TextBlock Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFA200" FontSize="12" Width="90" TextWrapping="Wrap" TextAlignment="Center" Text="话筒距离太近"></TextBlock>
+            </Grid>
+        </Grid>
+        <!-- 图示部分结束 -->
+        <!-- 图示部分开始 -->
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="200"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFA200" FontSize="18" Text="录音、放音测试"></TextBlock>
+            <TextBlock Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="#2DA8E8" FontSize="16" Margin="100 0 0 0" Text="朗读任意一段试音内容，并在界面右下角调节录（放）音音量。"></TextBlock>
+            <Border Grid.Row="2" BorderBrush="#B1B1B1" BorderThickness="1" CornerRadius="5" Margin="10 10 10 20" Width="600" Height="170">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"></RowDefinition>
+                        <RowDefinition Height="20"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="#5E5E5E" FontSize="16" Margin="40 20 0 0" FontStyle="Normal" Text="生活就像海洋，只有意志坚强的人，才能到达彼岸。"></TextBlock>
+                    <Separator Grid.Row="1" Width="520"/>
+                    <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="#5E5E5E" FontSize="16" Margin="40 0 0 0" FontStyle="Normal" Width="520" TextWrapping="Wrap" Text="Life is like the sea, only strong-willed people can reach the other side."></TextBlock>
+                    <Button Grid.Row="3" Width="30" Height="30" Margin="0 0 40 0" HorizontalAlignment="Right" VerticalAlignment="Center" Background="#CCCCCC" BorderBrush="#CCCCCC" Foreground="White" Command="{Binding AudioTestCommand}" Style="{DynamicResource MainCircleButtonStyle}">
+                        <!--<Image Width="20" Height="20"></Image>-->
+                        <materialDesign:PackIcon Width="20" Height="20" Kind="Stop" />
+                    </Button>
+                </Grid>
+                
+            </Border>
+        </Grid>
+        <!-- 图示部分结束 -->
+        <Button Grid.Row="4" Width="100" Height="36" Background="#CCCCCC" BorderBrush="#CCCCCC">
+            <TextBlock FontSize="16" FontStyle="Normal" Text="开始录音"></TextBlock>
+            <!--<Border BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="5">
+                <TextBlock FontSize="16" FontStyle="Normal" Text="开始录音"></TextBlock>
+            </Border>-->
+        </Button>
+    </Grid>
+</UserControl>

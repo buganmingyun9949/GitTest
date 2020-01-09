@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F7BDEE1E-540B-4C94-841B-24DAD0908C1B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Plugin.Exam.Qs</RootNamespace>
+    <AssemblyName>Plugin.Exam.Qs</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.4\lib\net40\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=0e453835af4ee6ce, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net40\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.4.1.0, Culture=neutral, PublicKeyToken=f46ff315b1088208, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net40\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.1.9.0\lib\net35\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\ExamFlowType.cs" />
+    <Compile Include="Common\ExamSubItemScoreVM.cs" />
+    <Compile Include="Common\QuestionType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ViewModel\DiaChoice39ViewModel.cs" />
+    <Compile Include="ViewModel\EssayChoiceViewModel.cs" />
+    <Compile Include="ViewModel\IQsBaseViewModel.cs" />
+    <Compile Include="ViewModel\ObtainInfoAskViewModel.cs" />
+    <Compile Include="ViewModel\ObtainInfoViewModel1.cs" />
+    <Compile Include="ViewModel\QsBaseViewModel.cs" />
+    <Compile Include="ViewModel\ObtainInfoViewModel.cs" />
+    <Compile Include="ViewModel\DiaChoiceViewModel.cs" />
+    <Compile Include="ViewModel\ReadWordViewModel.cs" />
+    <Compile Include="ViewModel\Spoken1902ViewModel.cs" />
+    <Compile Include="ViewModel\Spoken1901ViewModel.cs" />
+    <Compile Include="ViewModel\SubItem\EvaluationScoreItemViewModel.cs" />
+    <Compile Include="ViewModel\SubItem\HistoryScoreItemViewModel.cs" />
+    <Compile Include="ViewModel\SubItem\SubTextChoice1ViewModel.cs" />
+    <Compile Include="ViewModel\SyncPredViewModel.cs" />
+    <Compile Include="ViewModel\SyncWordViewModel.cs" />
+    <Compile Include="ViewModel\SpokenOesyViewModel.cs" />
+    <Compile Include="ViewModel\SpokenScneViewModel.cs" />
+    <Compile Include="ViewModel\SpokenRightAnswerViewModel.cs" />
+    <Compile Include="ViewModel\ReadSentenceViewModel.cs" />
+    <Compile Include="ViewModel\SpokenPredViewModel.cs" />
+    <Compile Include="ViewModel\SingleChoiceViewModel.cs" />
+    <Compile Include="ViewModel\SubItem\SubImageChoiceViewModel.cs" />
+    <Compile Include="ViewModel\SubItem\SubTextChoiceViewModel.cs" />
+    <Compile Include="View\DiaChoice39View.xaml.cs">
+      <DependentUpon>DiaChoice39View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EssayChoiceView.xaml.cs">
+      <DependentUpon>EssayChoiceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ObtainInfoAskView.xaml.cs">
+      <DependentUpon>ObtainInfoAskView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ObtainInfoView.xaml.cs">
+      <DependentUpon>ObtainInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DiaChoiceView.xaml.cs">
+      <DependentUpon>DiaChoiceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReadWordView.xaml.cs">
+      <DependentUpon>ReadWordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Spoken1902View.xaml.cs">
+      <DependentUpon>Spoken1902View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Spoken1901View.xaml.cs">
+      <DependentUpon>Spoken1901View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SpokenOesyView.xaml.cs">
+      <DependentUpon>SpokenOesyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SubItem\EvaluationScoreItemView.xaml.cs">
+      <DependentUpon>EvaluationScoreItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SubItem\HistoryScoreItemView.xaml.cs">
+      <DependentUpon>HistoryScoreItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SubItem\SubTextChoice1View.xaml.cs">
+      <DependentUpon>SubTextChoice1View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SyncPredView.xaml.cs">
+      <DependentUpon>SyncPredView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SyncWordView.xaml.cs">
+      <DependentUpon>SyncWordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SpokenScneView.xaml.cs">
+      <DependentUpon>SpokenScneView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SpokenRightAnswerView.xaml.cs">
+      <DependentUpon>SpokenRightAnswerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SpokenPredView.xaml.cs">
+      <DependentUpon>SpokenPredView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReadSentenceView.xaml.cs">
+      <DependentUpon>ReadSentenceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SingleChoiceView.xaml.cs">
+      <DependentUpon>SingleChoiceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SubItem\SubImageChoiceView.xaml.cs">
+      <DependentUpon>SubImageChoiceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SubItem\SubTextChoiceView.xaml.cs">
+      <DependentUpon>SubTextChoiceView.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Framework.Engine\Framework.Engine.csproj">
+      <Project>{b532540d-534f-4167-8beb-693134c6d928}</Project>
+      <Name>Framework.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.Logging\Framework.Logging.csproj">
+      <Project>{90254545-27C0-49BF-AE33-AFC88F540D44}</Project>
+      <Name>Framework.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.VoiceRecorder.Audio\Framework.VoiceRecorder.Audio.csproj">
+      <Project>{91EDFCAD-2495-44D2-BD45-7CC389C6D838}</Project>
+      <Name>Framework.VoiceRecorder.Audio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MahApps.Metro\MaterialDesignColors.Wpf\MaterialDesignColors.Wpf.csproj">
+      <Project>{90b53209-c60c-4655-b28d-a1b3e1044ba3}</Project>
+      <Name>MaterialDesignColors.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MahApps.Metro\MaterialDesignThemes.Wpf\MaterialDesignThemes.Wpf.csproj">
+      <Project>{f079fb0a-a8ed-4216-b6a5-345756751a04}</Project>
+      <Name>MaterialDesignThemes.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ST.Common\ST.Common.csproj">
+      <Project>{A4DB45BA-324E-47F6-929B-7B674A45AA78}</Project>
+      <Name>ST.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ST.Models\ST.Models.csproj">
+      <Project>{D7D555A0-0466-41F9-9863-04A2FA40D185}</Project>
+      <Name>ST.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ST.Style\ST.Style.csproj">
+      <Project>{afa91376-14b6-4310-afcf-2d61c2c1bdb9}</Project>
+      <Name>ST.Style</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="View\DiaChoice39View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\EssayChoiceView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ObtainInfoAskView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ObtainInfoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DiaChoiceView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ReadWordView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Spoken1902View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Spoken1901View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SpokenOesyView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SubItem\EvaluationScoreItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SubItem\HistoryScoreItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SubItem\SubTextChoice1View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SyncPredView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SyncWordView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SpokenScneView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SpokenRightAnswerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SpokenPredView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ReadSentenceView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SingleChoiceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SubItem\SubImageChoiceView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SubItem\SubTextChoiceView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Style\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\startrecord.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stoprecord.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\nopic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\star_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\star_0_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\star_0_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\star_0_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\star_0_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\star_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\star_1_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\star_1_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\star_1_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\star_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\star_2_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\star_2_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\star_2_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\star_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\star_3_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\star_3_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\star_3_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\star_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\star_4_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\star_4_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\star_4_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\synctag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\score_botton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\yanseshuoming.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\syncbg.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

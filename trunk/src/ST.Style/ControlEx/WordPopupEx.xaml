@@ -1,0 +1,77 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ST.Style.ControlEx"
+                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+
+    <Style TargetType="{x:Type local:WordPopup}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:WordPopup}">
+                    <materialDesign:PopupBox Background="{TemplateBinding Background}"  
+                            BorderBrush="{TemplateBinding BorderBrush}"  
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <materialDesign:PopupBox.ToggleContent>
+                            <TextBlock Text="{TemplateBinding WordContent }"></TextBlock>
+                        </materialDesign:PopupBox.ToggleContent>
+                        <Grid x:Name="grid" Background="{TemplateBinding Background}">
+                            <Border x:Name="PART_Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}"/>
+
+                            <Grid x:Name="Gd_WordTransContent"  Background="Transparent" >
+                                <StackPanel Orientation="Vertical">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" x:Name="PART_WORD" Text="{TemplateBinding WordContent}"
+                                                   Foreground="Black"   Margin="10"
+                                                   FontSize="32" VerticalAlignment="Bottom"  FontFamily="Microsoft YaHei"/>
+
+                                        <TextBlock Grid.Column="1" x:Name="PART_WORD_Score" Text="得分:100分"
+                                                   Foreground="Black"  Margin="10 0 0 10"
+                                                   FontSize="14" 
+                                                   VerticalAlignment="Bottom"  FontFamily="Microsoft YaHei"/>
+                                    </Grid>
+                                    <ContentControl x:Name="PART_WORD_PRONUNCIATION" Content="{TemplateBinding WordPronunciation}"></ContentControl>
+                                    <ContentControl x:Name="PART_WORD_TRANS" Content="{TemplateBinding WordTransContent}"></ContentControl>
+                                </StackPanel> 
+                            </Grid>
+                        </Grid>
+                    </materialDesign:PopupBox>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="PART_Border" Value="{Binding MouseOverBackground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}"/>
+                            <Setter Property="BorderBrush" TargetName="PART_Border" Value="{Binding MouseOverBorderBrush,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}"/>
+                            <!--<Setter Property="Visibility" TargetName="PART_MouseOverIcon" Value="Visible"/>
+                            <Setter Property="Visibility" TargetName="PART_Icon" Value="Collapsed"/>
+                            <Setter Property="Visibility" TargetName="PART_PressIcon" Value="Collapsed"/>-->
+                            <!--<Setter Property="Visibility" TargetName="closrbtn" Value="Visible"/>
+                            <Setter Property="Background" TargetName="closrbtn" Value="DarkGray"/>
+                            <Setter Property="Opacity" TargetName="closrbtn" Value="0.85"/>-->
+                            <!--<Setter Property="Text" TargetName="PART_Close" Value="删除"/>-->
+                            <!--<Setter Property="Visibility" TargetName="Gd_Close" Value="Visible"/>
+                            <Setter Property="Background" TargetName="Gd_Close" Value="Black"/>
+                            <Setter Property="Opacity" TargetName="Gd_Close" Value="0.65" />-->
+                        </Trigger>
+
+                        <!--<Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.5" />
+                        </Trigger>-->
+
+                        <!--<Trigger Property="Text" SourceName="PART_Content" Value="">
+                            <Setter Property="Visibility" TargetName="PART_Content" Value="Collapsed"/>
+                        </Trigger>
+
+                        <Trigger Property="Text" SourceName="PART_Content" Value="{x:Null}">
+                            <Setter Property="Visibility" TargetName="PART_Content" Value="Collapsed"/>
+                        </Trigger>-->
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+</ResourceDictionary>

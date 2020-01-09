@@ -1,0 +1,140 @@
+﻿<UserControl x:Class="Plugin.Exam.Report.View.SpokenPredRV"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Plugin.Exam.Report.View"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:domain="clr-namespace:ST.Common.Domain;assembly=ST.Common"
+             xmlns:controls="clr-namespace:Plugin.Exam.Report.Controls"
+             mc:Ignorable="d"  Width="780"
+             d:DesignHeight="600" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ExamStyleEx.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ButtonEx.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ListBoxEx.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ScrollViewerEx.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/SliderEx.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <domain:ResultChoiceValueConverter x:Key="valueConverter"/>
+            <domain:ScoreEvaluationValueConverter x:Key="scoreConverter"/>
+            <domain:PlayControlIconConverter x:Key="playIconConverter"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="#f6f6f6">
+                <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0 0 0">
+                    <TextBlock Foreground="#999999" FontSize="20" Margin="0 0 10 0" Text="得分"></TextBlock>
+                    <TextBlock Foreground="#64c0a0" FontSize="20" Margin="0 0 10 0" Text="{Binding PaperDetailUserScore,FallbackValue=10, Mode=TwoWay}"></TextBlock>
+                    <Line Grid.Column="1" X1="0" Y1="32" X2="0" Y2="8" Margin="0 -8 0 0" Stroke="{StaticResource GrayBrush5}" StrokeThickness="1"></Line>
+                    <TextBlock Foreground="#999999" FontSize="20" Margin="10 0 10 0" Text="总分"></TextBlock>
+                    <TextBlock Foreground="#999999" FontSize="20" Margin="0 0 10 0" Text="{Binding PaperDetailTotalScore,FallbackValue=10, Mode=TwoWay}"></TextBlock>
+                </WrapPanel>
+                <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 20 0">
+                    <TextBlock Foreground="#999999" FontSize="20" Margin="10 0 10 0" Text="准确度"></TextBlock>
+                    <TextBlock Foreground="{Binding Path=UserPronunciation, Mode=TwoWay, Converter={StaticResource scoreConverter},FallbackValue='#41b790'}" FontSize="20" Margin="0 0 10 0" Text="{Binding UserPronunciation,FallbackValue=10, Mode=TwoWay}"></TextBlock>
+                    <Line X1="0" Y1="32" X2="0" Y2="8" Margin="0 -8 0 0" Stroke="{StaticResource GrayBrush5}" StrokeThickness="1"></Line>
+                    <TextBlock Foreground="#999999" FontSize="20" Margin="10 0 10 0" Text="流利度"></TextBlock>
+                    <TextBlock Foreground="{Binding Path=UserFluency, Mode=TwoWay, Converter={StaticResource scoreConverter},FallbackValue='#41b790'}" FontSize="20" Margin="0 0 10 0" Text="{Binding UserFluency,FallbackValue=10, Mode=TwoWay}"></TextBlock>
+                    <Line X1="0" Y1="32" X2="0" Y2="8" Margin="0 -8 0 0" Stroke="{StaticResource GrayBrush5}" StrokeThickness="1"></Line>
+                    <TextBlock Foreground="#999999" FontSize="20" Margin="10 0 10 0" Text="完整度"></TextBlock>
+                    <TextBlock Foreground="{Binding Path=UserIntegrity, Mode=TwoWay, Converter={StaticResource scoreConverter},FallbackValue='#41b790'}" FontSize="20" Margin="0 0 10 0" Text="{Binding UserIntegrity,FallbackValue=10, Mode=TwoWay}"></TextBlock>
+                    <Line X1="0" Y1="32" X2="0" Y2="8" Margin="0 -8 0 0" Stroke="{StaticResource GrayBrush5}" StrokeThickness="1"></Line>
+                    <TextBlock Foreground="#999999" FontSize="20" Margin="10 0 10 0" Text="语速" ></TextBlock>
+                    <TextBlock Foreground="{Binding Path=UserSpeed, Mode=TwoWay, Converter={StaticResource scoreConverter},FallbackValue='#41b790'}" FontSize="20" Margin="0 0 10 0" Text="{Binding UserSpeed,FallbackValue = 10, Mode = TwoWay}" ></TextBlock>
+                </WrapPanel>
+                <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20 0 20 0" >
+                    <!--<ListBox SelectedIndex="{Binding SelectedChoiceExamShow, Mode=TwoWay, FallbackValue=0}" Style="{DynamicResource ExamResultItemToolListBox}" >
+                        <ListViewItem IsSelected="True" Style="{DynamicResource ExamResultLeftItemToolListBoxItem}">第1小题</ListViewItem>
+                        <ListViewItem  Style="{DynamicResource ExamResultCenterItemToolListBoxItem}">第2小题</ListViewItem>
+                        <ListViewItem  Style="{DynamicResource ExamResultCenterItemToolListBoxItem}">第3小题</ListViewItem>
+                        <ListViewItem  Style="{DynamicResource ExamResultCenterItemToolListBoxItem}">第4小题</ListViewItem>
+                        <ListViewItem  Style="{DynamicResource ExamResultRightItemToolListBoxItem}">第5小题</ListViewItem>
+                    </ListBox>-->
+                </WrapPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid Margin="0 0 0 30">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Margin="40 0 40 0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <!--<TextBlock Grid.Row="2" Text="{Binding TitleTwo, FallbackValue=听下面一段对话，回答第 1 至第 2 题。}" Style="{DynamicResource SecondTitleStyle}"></TextBlock>-->
+                        <TextBlock Text="{Binding QsTitle,FallbackValue=一、短文朗读（共 8 小题；每小题 1.5 分，共 12 分）}"
+                                   Style="{DynamicResource BigTitleStyle}" Margin="0 20 0 8" FontFamily="SimSun"
+                                   TextWrapping="WrapWithOverflow">
+                        </TextBlock>
+                        <TextBlock 
+                                   Text="{Binding QsTitleContent,FallbackValue=听对话或独白，根据所听内容从每题所给的 A、B、C 三个选项中选择最佳选项，并用鼠标点击该选项。听每段对话或独白前，你有 10 秒钟的时间阅读每小题。听完后，你有 10 秒钟的时间作答。每段对话或独白你将听两遍。}"
+                                   Style="{DynamicResource SecondTitleStyle}" Margin="50 10 68 10" FontFamily="SimSun"
+                                   TextWrapping="WrapWithOverflow" LineHeight="30">
+                        </TextBlock>
+                        <WrapPanel Grid.Row="2">
+                            <!-- Visible Collapsed -->
+                            <Button Margin="50 0 0 0" Command="{Binding PlayQsAudio}" Visibility="{Binding ShowPlayBtn,FallbackValue = Visible}" CommandParameter="choice"   Background="White" BorderThickness="2" BorderBrush="#30cc75" Foreground="#30cc75" HorizontalAlignment="Left" Style="{DynamicResource ButtonStyle}" Width="96" Height="36">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="播放原文" VerticalAlignment="Center"></TextBlock>
+                                    <materialDesign:PackIcon Margin="4 4 0 4" Kind="{Binding Path=PlayIcon, Mode=TwoWay, Converter={StaticResource playIconConverter}, FallbackValue=Play, ConverterParameter=5-1}" />
+                                </StackPanel>
+                            </Button>
+                        </WrapPanel>
+                        <Grid Margin="50 10 0 10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0"
+                                Text="评分标准" Width="120" Style="{DynamicResource SecondTitleStyle}"  >
+                            </TextBlock>
+
+                            <TextBlock Grid.Column="1"
+                                       Text="优" Width="30" Style="{DynamicResource SecondTitleStyle}"  >
+                            </TextBlock>
+                            <Grid Grid.Column="2" Width="40" Height="12" Background="#41B612" Margin="6 0 10 0"></Grid>
+                            <TextBlock Grid.Column="3"
+                                       Text="良" Width="30" Style="{DynamicResource SecondTitleStyle}"  >
+                            </TextBlock>
+                            <Grid Grid.Column="4" Width="40" Height="12" Background="#1394FA" Margin="6 0 10 0"></Grid>
+                            <TextBlock Grid.Column="5"
+                                       Text="中" Width="30" Style="{DynamicResource SecondTitleStyle}"  >
+                            </TextBlock>
+                            <Grid Grid.Column="6" Width="40" Height="12" Background="#FF8418" Margin="6 0 10 0"></Grid>
+                            <TextBlock Grid.Column="7"
+                                       Text="差" Width="30" Style="{DynamicResource SecondTitleStyle}"  >
+                            </TextBlock>
+                            <Grid Grid.Column="8" Width="40" Height="12" Background="#F44116" Margin="6 0 10 0"></Grid>
+                        </Grid>
+                    </StackPanel>
+                    <!--<TextBlock Grid.Row="1" Style="{DynamicResource ExamQsTextTbStyle}" FontWeight="Normal" Foreground="#333333" Text="{Binding QsText,FallbackValue='对话内容'}"></TextBlock>-->
+                    <StackPanel Grid.Row="2" x:Name="QsItemContent" Margin="90 20 40 10" x:FieldModifier="public">
+                        
+                    </StackPanel>
+                    <Grid Grid.Row="3" Margin="40 10 0 10">
+                        <WrapPanel Margin="50 0 20 0" Height="40" VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <TextBlock Text="我的录音：" Margin="0 6 10 0" Style="{DynamicResource OptionTitleStyle3}"></TextBlock>
+                            <controls:PlayAudioViewUC HorizontalAlignment="Left" AudioUrl ="{Binding PlayUserAudioUrl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></controls:PlayAudioViewUC>
+                        </WrapPanel>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

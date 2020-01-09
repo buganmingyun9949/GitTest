@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="Personal_App.Domain.Menu.MenuHomework"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Personal_App.Domain.Menu"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" Width="896"
+             d:DesignHeight="450" d:DesignWidth="896" FontFamily="Microsoft YaHei">
+    <Grid Margin="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="300*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ListBox Grid.Row="0" Margin="30 0 0 0" Style="{StaticResource HomeworkToolListBox}" SelectedIndex="{Binding HomeworkSelectedIndex, FallbackValue=0}" Width="160" HorizontalAlignment="Left">
+            <ListViewItem IsSelected="True" Padding="0 0 2 0" >未完成</ListViewItem>
+            <ListViewItem  Padding="0 0 2 0">已完成</ListViewItem>
+        </ListBox>
+
+        <Button Grid.Row="0" Margin="0 8 0 0" HorizontalAlignment="Left"
+                Style="{DynamicResource ButtonStyle}" Foreground="#537588" Command="{Binding UpdateZYCommand}" CommandParameter="MainDialog" ToolTip="刷新作业">
+            <materialDesign:PackIcon Width="20" Height="20" Kind="Cached" />
+        </Button>
+        <Grid Grid.Row="0" HorizontalAlignment="Right" Margin="0 12 60 0">
+            <WrapPanel>
+                <TextBlock FontSize="14" Foreground="#a0b3b9" Text="当前班级:"></TextBlock>
+                <TextBlock Margin="10 0 0 0" FontSize="14" Foreground="#537588" Text="{Binding Classinfo.Class_name, FallbackValue=八年级, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                <Button Style="{StaticResource NoNormalButton}" Width="40" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center"  FontSize="13" VerticalContentAlignment="Center" Margin="10 0 0 0" Command="{Binding SwitchClassCommand}" Content="切换" ></Button>
+            </WrapPanel>
+        </Grid>
+        <ScrollViewer Grid.Row="1" x:Name="MainZyContentSV" Margin="2 12 2 2" Padding="0 6 0 6" Focusable="False">
+            <Grid>
+                <WrapPanel x:Name="NewContentPanel" Visibility="Visible" Margin="0">
+                </WrapPanel>
+                <WrapPanel x:Name="CompleteContentPanel" Visibility="Collapsed" Margin="0">
+                </WrapPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

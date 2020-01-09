@@ -1,0 +1,688 @@
+﻿<Window x:Class="Personal_App.TestWin"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:local="clr-namespace:Personal_App"
+                       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                       xmlns:controlEx="clr-namespace:ST.Style.ControlEx;assembly=ST.Style"
+                       xmlns:domain="clr-namespace:ST.Common.Domain;assembly=ST.Common"
+                       xmlns:gif="http://wpfanimatedgif.codeplex.com"
+                       mc:Ignorable="d"   Background="Transparent" 
+                       Title="TestWin" Height="960" Width="1200">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ScrollViewerEx.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ListBoxEx.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ProgressBarEx.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.TextBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/RadioButtonEx.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/CommonStyle.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ImageEx.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/WordPopupEx.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style x:Key="SecondTitleStyle" TargetType="{x:Type TextBlock}" xml:space="preserve">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Foreground" Value="#666666" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
+
+            <DataTemplate x:Key="ImageDataTemplate" x:Shared="False">
+                <Image Source="{Binding Mode=OneWay, FallbackValue={x:Static DependencyProperty.UnsetValue}}"
+                       Stretch="Fill" />
+            </DataTemplate>
+
+            <Ellipse x:Key="AppThemeMenuIcon"
+                     Width="16"
+                     Height="16"
+                     x:Shared="False"
+                     Fill="{Binding ColorBrush, Mode=OneWay}"
+                     Stroke="{Binding BorderColorBrush, Mode=OneWay}"
+                     StrokeThickness="1" />
+
+            <Ellipse x:Key="AccentMenuIcon"
+                     Width="16"
+                     Height="16"
+                     x:Shared="False"
+                     Fill="{Binding ColorBrush, Mode=OneWay}" />
+
+            <Style x:Key="AppThemeMenuItemStyle"
+                   BasedOn="{StaticResource MetroMenuItem}"
+                   TargetType="{x:Type MenuItem}">
+                <Setter Property="Command" Value="{Binding ChangeAccentCommand}" />
+                <Setter Property="Header" Value="{Binding Name, Mode=OneWay}" />
+                <Setter Property="Icon" Value="{StaticResource AppThemeMenuIcon}" />
+            </Style>
+
+            <Style x:Key="AccentColorMenuItemStyle"
+                   BasedOn="{StaticResource MetroMenuItem}"
+                   TargetType="{x:Type MenuItem}">
+                <Setter Property="Command" Value="{Binding ChangeAccentCommand}" />
+                <Setter Property="Header" Value="{Binding Name, Mode=OneWay}" />
+                <Setter Property="Icon" Value="{StaticResource AccentMenuIcon}" />
+            </Style>
+
+            <!--<Dialog:CustomDialog x:Key="CustomDialogTest"
+                                 x:Name="CustomTestDialog"
+                                 Title="This dialog allows arbitrary content.">
+                <TextBlock x:Name="MessageTextBlock"
+                           Height="200"
+                           Foreground="{DynamicResource AccentColorBrush}"
+                           Text="{Binding Artists[0].Name}" />
+            </Dialog:CustomDialog>-->
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Background="Transparent">
+        <Border BorderThickness="5" BorderBrush="DarkGreen"  CornerRadius="30,30,30,30" Name="top" Background="{DynamicResource GrayBrush6}">
+            <materialDesign:DialogHost Identifier="RootDialog" SnackbarMessageQueue="{Binding ElementName=MainSnackbar, Path=MessageQueue}">
+                <Grid Background="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Menu Grid.Row="0" Margin="5"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Stretch">
+                        <!--<MenuItem Header="Theme"
+                      ItemContainerStyle="{StaticResource AppThemeMenuItemStyle}"
+                      ItemsSource="{Binding AppThemes, Mode=OneWay}" />
+            <MenuItem Header="Accent"
+                      ItemContainerStyle="{StaticResource AccentColorMenuItemStyle}"
+                      ItemsSource="{Binding AccentColors, Mode=OneWay}" />-->
+                        <!--<MenuItem Header="Window">
+                            <MenuItem Header="英语说     v1.0"
+                          IsCheckable="True" Width="160" Height="60">
+                                <Grid>
+                                    <TextBlock Text="乐英语说"></TextBlock>
+                                </Grid>
+                            </MenuItem>
+                            <MenuItem Header="ShowInTaskbar"
+                          IsCheckable="True"
+                          IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:MetroWindow}}, Path=ShowInTaskbar}"
+                          Width="160" />
+                            <MenuItem Header="Topmost"
+                          IsCheckable="True"
+                          IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:MetroWindow}}, Path=Topmost}"
+                          Width="160" />
+                            <Separator />
+                            <MenuItem x:Name="ShowSeparatorsMI"
+                          Header="ShowSeparators (RightWindowCommands)"
+                          IsCheckable="True"
+                          IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:MetroWindow}}, Path=RightWindowCommands.ShowSeparators}" />
+                            <MenuItem Header="ShowLastSeparator in (RightWindowCommands)"
+                          IsCheckable="True"
+                          IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:MetroWindow}}, Path=RightWindowCommands.ShowLastSeparator}"
+                          IsEnabled="{Binding ElementName=ShowSeparatorsMI, Path=IsChecked, Mode=OneWay}" />
+                            <Separator />
+                            <MenuItem Command="{Binding ToggleIconScalingCommand}"
+                          CommandParameter="{x:Static controls:MultiFrameImageMode.ScaleDownLargerFrame}"
+                          Header="Window icon: scale down larger frame"
+                          IsCheckable="True"
+                          IsChecked="{Binding IsScaleDownLargerFrame, Mode=OneWay}" />
+                            <MenuItem Command="{Binding ToggleIconScalingCommand}"
+                          CommandParameter="{x:Static controls:MultiFrameImageMode.NoScaleSmallerFrame}"
+                          Header="Window icon: no scale, smaller frame"
+                          IsCheckable="True"
+                          IsChecked="{Binding IsNoScaleSmallerFrame, Mode=OneWay}" />
+                        </MenuItem>-->
+                    </Menu>
+                    <WrapPanel Grid.Row="1" Visibility="Visible">
+                        <Button
+                Width="128"
+                Margin="0,32,0,0"
+                Command="{Binding RunExtendedDialogCommand}">
+                            EXTENDED
+                        </Button>
+                        <Button
+                Width="128"
+                Margin="0,32,0,0"
+                Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}">
+                            测试弹窗
+                        </Button>
+                        <materialDesign:DialogHost
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                DialogClosing="Sample1_DialogHost_OnDialogClosing">
+                            <materialDesign:DialogHost.DialogContent>
+                                <StackPanel Margin="16">
+                                    <TextBlock>Add a new fruit.</TextBlock>
+                                    <TextBox
+                            x:Name="FruitTextBox"
+                            Margin="0,8,0,0"
+                            HorizontalAlignment="Stretch" />
+                                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                        <Button
+                                Margin="0,8,8,0"
+                                Command="materialDesign:DialogHost.CloseDialogCommand"
+                                IsDefault="True"
+                                Style="{StaticResource MaterialDesignFlatButton}">
+                                            <Button.CommandParameter>
+                                                <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">True</system:Boolean>
+                                            </Button.CommandParameter>
+                                            ACCEPT
+                                        </Button>
+                                        <Button
+                                Margin="0,8,8,0"
+                                Command="materialDesign:DialogHost.CloseDialogCommand"
+                                IsCancel="True"
+                                Style="{StaticResource MaterialDesignFlatButton}">
+                                            <Button.CommandParameter>
+                                                <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">False</system:Boolean>
+                                            </Button.CommandParameter>
+                                            CANCEL
+                                        </Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </materialDesign:DialogHost.DialogContent>
+                            <Border
+                    MinWidth="256"
+                    MinHeight="256"
+                    BorderBrush="{DynamicResource PrimaryHueMidBrush}"
+                    BorderThickness="1"
+                    ClipToBounds="True">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <ListBox x:Name="FruitListBox">
+                                        <ListBoxItem>Apple</ListBoxItem>
+                                        <ListBoxItem>Banana</ListBoxItem>
+                                        <ListBoxItem>Pear</ListBoxItem>
+                                    </ListBox>
+                                    <materialDesign:ColorZone
+                            Grid.Row="1"
+                            Effect="{DynamicResource MaterialDesignShadowDepth5}"
+                            Mode="PrimaryMid">
+                                        <TextBlock Margin="16">Fruit Bowl</TextBlock>
+                                    </materialDesign:ColorZone>
+                                    <Button
+                            Grid.Row="0"
+                            Margin="0,0,28,-20"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                            Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
+                                        <Viewbox Width="22" Height="22">
+                                            <Canvas Width="24" Height="24">
+                                                <Path Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
+                                          Fill="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Button}, Path=Foreground}" />
+                                            </Canvas>
+                                        </Viewbox>
+                                    </Button>
+                                </Grid>
+                            </Border>
+                        </materialDesign:DialogHost>
+                        <materialDesign:DialogHost
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                CloseOnClickAway="True"
+                DialogContent="{Binding Sample4Content}"
+                IsOpen="{Binding IsSample4DialogOpen}">
+                            <Border
+                    MinWidth="256"
+                    MinHeight="256"
+                    BorderBrush="{DynamicResource PrimaryHueMidBrush}"
+                    BorderThickness="1"
+                    ClipToBounds="True">
+                                <StackPanel>
+                                <Button
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Command="{Binding OpenSample4DialogCommand}">
+                                    RUN
+                                </Button>
+                                <Button
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Command="{Binding TransTimeCommand}">
+                                    TransTime
+                                    </Button>
+                                </StackPanel>
+                            </Border>
+                        </materialDesign:DialogHost>
+                        <materialDesign:PopupBox StaysOpen="True">
+                            <Grid
+                    Width="300"
+                    Margin="8,8,8,8">
+                                <Grid.Resources>
+                                    <Style BasedOn="{StaticResource MaterialDesignCheckBox}" TargetType="CheckBox">
+                                        <Setter Property="Margin" Value="8,8,10,8" />
+                                    </Style>
+                                    <Style BasedOn="{StaticResource MaterialDesignTextBox}" TargetType="TextBox">
+                                        <Setter Property="materialDesign:HintAssist.IsFloating" Value="True" />
+                                        <Setter Property="Margin" Value="8,8,8,8" />
+                                    </Style>
+                                </Grid.Resources>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock
+			Grid.Row="0"
+			Grid.Column="0"
+			Margin="8,8,8,16"
+			Style="{StaticResource MaterialDesignTitleTextBlock}">
+			OPTIONS
+                                </TextBlock>
+                                <TextBox
+			Grid.Row="1"
+			Grid.Column="0"
+			materialDesign:HintAssist.Hint="Setting 1"
+			Text="200" />
+                                <TextBox
+			Grid.Row="2"
+			Grid.Column="0"
+			materialDesign:HintAssist.Hint="Setting 2"
+			Text="400" />
+                                <TextBox
+			Grid.Row="3"
+			Grid.Column="0"
+			materialDesign:HintAssist.Hint="Setting 3"
+			Text="600" />
+                                <CheckBox
+			Grid.Row="1"
+			Grid.Column="1"
+			VerticalAlignment="Bottom" />
+                                <CheckBox
+			Grid.Row="2"
+			Grid.Column="1"
+			VerticalAlignment="Bottom"
+			IsChecked="True" />
+                                <CheckBox
+			Grid.Row="3"
+			Grid.Column="1"
+			VerticalAlignment="Bottom" />
+                                <ComboBox
+			Grid.Row="4"
+			Grid.Column="0"
+			Margin="8,8,8,8"
+			materialDesign:HintAssist.Hint="Setting 4"
+			materialDesign:HintAssist.IsFloating="True"
+			MaxDropDownHeight="200">
+                                    <ComboBoxItem>25%</ComboBoxItem>
+                                    <ComboBoxItem>50%</ComboBoxItem>
+                                    <ComboBoxItem>75%</ComboBoxItem>
+                                    <ComboBoxItem>100%</ComboBoxItem>
+                                    <ComboBoxItem>150%</ComboBoxItem>
+                                    <ComboBoxItem>200%</ComboBoxItem>
+                                    <ComboBoxItem>250%</ComboBoxItem>
+                                    <ComboBoxItem>501%</ComboBoxItem>
+                                </ComboBox>
+                            </Grid>
+                        </materialDesign:PopupBox>
+                        <materialDesign:PopupBox StaysOpen="True" ToggleContent="VIP学员XX">
+                            <Grid
+                    Width="300">
+                                <Grid.Resources>
+                                    <Style BasedOn="{StaticResource MaterialDesignCheckBox}" TargetType="CheckBox">
+                                        <Setter Property="Margin" Value="8,8,10,8" />
+                                    </Style>
+                                    <Style BasedOn="{StaticResource MaterialDesignTextBox}" TargetType="TextBox">
+                                        <Setter Property="materialDesign:HintAssist.IsFloating" Value="True" />
+                                        <Setter Property="Margin" Value="8,8,8,8" />
+                                    </Style>
+                                </Grid.Resources>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Button Grid.Row="0">
+                                    <StackPanel>
+                                        <TextBlock Text="乐英语说"></TextBlock>
+                                        <TextBlock Text="V 1.0.0"></TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Separator  Grid.Row="1"/>
+                                <Button Grid.Row="2">
+                                    <StackPanel>
+                                        <TextBlock Text="乐英语说"></TextBlock>
+                                        <TextBlock Text="V 1.0.0"></TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <Separator  Grid.Row="3" />
+                                <Button Grid.Row="4">
+                                    <StackPanel>
+                                        <TextBlock Text="乐英语说"></TextBlock>
+                                        <TextBlock Text="V 1.0.0"></TextBlock>
+                                    </StackPanel>
+                                </Button>
+                            </Grid>
+                        </materialDesign:PopupBox>
+
+                        <Button materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                                materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                                materialDesign:ButtonProgressAssist.Maximum="100"
+                                materialDesign:ButtonProgressAssist.Value="50"
+                                materialDesign:ButtonProgressAssist.IndicatorBackground="{DynamicResource GrayBrush9}"
+                                materialDesign:ButtonProgressAssist.IndicatorForeground="#64e9ff"
+                                Content="完成75%" Foreground="{DynamicResource GrayBrush6}" FontSize="10" FontWeight="Bold"
+                                Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                                Background="White" BorderBrush="Black" BorderThickness="2" 
+                                Focusable="False"
+                                Margin="50 50 10 0" Width="76" Height="76" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                        <Button Click="ButtonBase1_OnClick" >测试全半角</Button>
+                        <Button Click="ButtonBase2_OnClick" >Web Link</Button>
+                        <Grid>
+                            <Grid.Resources>
+                                <ResourceDictionary>
+                                    <ResourceDictionary.MergedDictionaries>
+                                        <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/SliderEx.xaml" />
+                                    </ResourceDictionary.MergedDictionaries>
+
+                                    <!--<local:SliderValueConverter x:Key="sliderValueConverter"/>-->
+                                </ResourceDictionary>
+
+                            </Grid.Resources>
+                            <StackPanel>
+
+                                <Slider Minimum="0" Maximum="100" Style="{StaticResource ProgressSliderEx}" Foreground="#ff6161"
+                                        Value="20"
+                                        Width="280" 
+                                        Margin="8 0 0 0"></Slider>
+
+                                <Slider Minimum="0" Maximum="100" Style="{StaticResource MaterialDesignDiscreteSlider}"
+                                        Value="50"
+                                        Width="280" 
+                                        Margin="8 0 0 0"></Slider>
+                                <Slider x:Name="slider1"
+                                    Width="180"
+                                    Margin="0"
+                                    Maximum="100"
+                                    Minimum="0" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                    Style="{StaticResource ProgressSliderEx}"
+                                    Value="100"  Foreground="#ff6161" />
+                                <Slider
+                                    Width="180" Height="12"
+                                    Margin="0 10 0 0"
+                                    Maximum="50" Background="Aqua"
+                                    Minimum="0" VerticalAlignment="Top" HorizontalAlignment="Center" IsEnabled="False"
+                                    Style="{DynamicResource CountDownProgress}"
+                                    Value="25" Foreground="#ff6161" />
+
+                                <Slider
+                                    Width="180" Height="20"
+                                    Margin="0 20 0 0"
+                                    Maximum="1" Background="{DynamicResource WhiteBrush}"
+                                    Minimum="0" VerticalAlignment="Top" HorizontalAlignment="Center" IsEnabled="False"
+                                    Style="{DynamicResource ExamCompleteProgress}"
+                                    Value="0.9" Foreground="#30cc76" />
+                                <Button Style="{StaticResource MainQsFlatButton}" Width="100" Content="开始模考"  >
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                        <Grid>
+ 
+                        </Grid>
+
+                        <Grid Visibility="Collapsed">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="44"></RowDefinition>
+                                <RowDefinition Height="44"></RowDefinition>
+                                <RowDefinition Height="44"></RowDefinition>
+                                <RowDefinition Height="44"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="1、Who's Mary?" Foreground="#333333" FontSize="24" Margin="90 10 0 0" VerticalAlignment="Top" HorizontalAlignment="Left"></TextBlock>
+                            <Grid Grid.Row="1"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="120 0 0 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="48" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <RadioButton Content="A."
+                    Foreground="#333333" FontSize="24"
+                    VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Right"
+                    Style="{StaticResource MaterialDesignRadioButton}">
+                                </RadioButton>
+                                <TextBlock Text="Peter's classmate." Grid.Column="1" Foreground="#333333" FontSize="24" 
+                  VerticalAlignment="Center"
+                           Margin="6 2 0 0"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="2"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="120 0 0 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="58" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <RadioButton Content=" B."
+                    Foreground="#333333" FontSize="24"
+                    VerticalContentAlignment="Center" VerticalAlignment="Center"
+                    Style="{StaticResource MaterialDesignRadioButton}">
+                                </RadioButton>
+                                <TextBlock Text="Peter's classmate." Grid.Column="1" Foreground="#333333" FontSize="24" 
+                           VerticalAlignment="Center"
+                           Margin="6 2 0 0"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="3"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="120 0 0 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="58" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <RadioButton Content=" C."
+                    Foreground="#333333" FontSize="24"
+                    VerticalContentAlignment="Center" VerticalAlignment="Center"
+                    Style="{StaticResource MaterialDesignRadioButton}">
+                                </RadioButton>
+                                <TextBlock Text="Peter's classmate." Grid.Column="1" Foreground="#333333" FontSize="24" 
+                           VerticalAlignment="Center"
+                           Margin="6 2 0 0"></TextBlock>
+                            </Grid>
+                        </Grid>
+                        <WrapPanel Height="160">
+                            <StackPanel>
+                                <TextBox x:Name="txtWord"  Width="120" Text="one"  Margin="0" ></TextBox> 
+                                <Button Content="单词" Height="30" Click="Button_Click_2"></Button>
+                            </StackPanel>
+                            <WrapPanel>
+                                <TextBlock Text="2." Style="{DynamicResource SecondTitleStyle}" Margin="0" ></TextBlock>
+                                <TextBox
+                                    Width="120"
+                                    materialDesign:TransitionAssist.DisableTransitions="True" />
+                            </WrapPanel>
+                            <materialDesign:PackIcon Foreground="#EFEFEF" Background="#AAAAAA"
+                                                     Kind="HelpCircle"
+                                                     Height="28"
+                                                     Width="28" BorderBrush="Transparent" BorderThickness="0"
+                                                     Focusable="False" FocusVisualStyle="{x:Null}">
+                                <materialDesign:PackIcon.Clip>
+                                    <EllipseGeometry RadiusX="11" RadiusY="11" Center="14, 14"></EllipseGeometry>
+                                </materialDesign:PackIcon.Clip>
+                                <materialDesign:PackIcon.ToolTip>
+                                    <ToolTip Style="{ DynamicResource DefaultToolTipUserAlignmentStyle}"  Background="#EFEFEF" Height="130" Width="264" HorizontalOffset="-244" HorizontalAlignment="Right" >
+                                        <Grid>
+                                            <Image Source="Resources/bindCard.png" Width="262" Height="130"></Image>
+                                        </Grid>
+                                    </ToolTip>
+                                </materialDesign:PackIcon.ToolTip>
+                            </materialDesign:PackIcon>
+                        </WrapPanel>
+                        <!--<Grid>
+                            <Grid.ColumnDefinitions></Grid.ColumnDefinitions>
+                        </Grid>-->
+                        <ListBox SelectedIndex="1" Width="220"  FontSize="20"
+                                 Style="{DynamicResource ExamResultToolListBox}">
+                            <ListViewItem Height="48">
+                                返回首页
+                            </ListViewItem>
+                            <ListViewItem Height="48">
+                                <TextBlock Text="模考总成绩"></TextBlock>
+                            </ListViewItem>
+                            <ListViewItem Height="48">
+                                <TextBlock Text="听后选择"></TextBlock>
+                            </ListViewItem>
+                            <ListViewItem Height="48">
+                                <TextBlock Text="听后回答"></TextBlock>
+                            </ListViewItem>
+                            <ListViewItem Height="48">
+                                <TextBlock Text="听后记录并转述"></TextBlock>
+                            </ListViewItem>
+                            <ListViewItem Height="48">
+                                <TextBlock Text="短文朗读"></TextBlock>
+                            </ListViewItem>
+                        </ListBox>
+                        <ListBox SelectedIndex="0" Width="128" Height="270"  FontSize="16" Foreground="#b3c7c3"
+                                 Style="{DynamicResource MenuToolListBox}">
+                            <ListViewItem Height="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Top">
+                                <StackPanel>
+                                    <TextBlock Text="&#xe61a;" FontFamily="{StaticResource IconFont}" FontSize="30" Margin="0 16 0 0" ></TextBlock>
+                                    <TextBlock Text="专项" Margin="0 6 0 0" FontSize="16"></TextBlock>
+                                </StackPanel>
+                            </ListViewItem>
+                            <ListViewItem Height="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Top">
+                                <StackPanel>
+                                    <TextBlock Text="&#xe600;" FontFamily="{StaticResource IconFont}" FontSize="30" Margin="0 16 0 0" ></TextBlock>
+                                    <TextBlock Text="考试" Margin="0 6 0 0" FontSize="16"></TextBlock>
+                                </StackPanel>
+                            </ListViewItem>
+                            <ListViewItem Height="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Top">
+                                <StackPanel>
+                                    <TextBlock Text="&#xe793;" FontFamily="{StaticResource IconFont}" FontSize="30" Margin="0 16 0 0" ></TextBlock>
+                                    <TextBlock Text="作业" Margin="0 6 0 0" FontSize="16"></TextBlock>
+                                </StackPanel>
+                            </ListViewItem>
+                        </ListBox>
+                        <Grid x:Name="SyncBox">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                        <ListBox SelectedIndex="2"
+                                 Style="{DynamicResource ExamResultItemToolListBox}" VerticalAlignment="Top" Margin="20">
+                            <ListViewItem Height="36" Width="80" Style="{DynamicResource ExamResultLeftItemToolListBoxItem}">
+                                <TextBlock Text="1小题"></TextBlock>
+                            </ListViewItem>
+                            <ListViewItem Height="36" Width="80" Style="{DynamicResource ExamResultCenterItemToolListBoxItem}">
+                                <TextBlock Text="2小题"></TextBlock>
+                            </ListViewItem>
+                            <ListViewItem Height="36" Width="80" Style="{DynamicResource ExamResultRightItemToolListBoxItem}">
+                                <TextBlock Text="3小题"></TextBlock>
+                            </ListViewItem>
+                        </ListBox>
+
+                        <RadioButton Style="{StaticResource ClassBoxRadioButton}" Margin="6">近3天</RadioButton>
+                        <RadioButton Style="{StaticResource ClassBoxRadioButton}" Margin="6">近7天</RadioButton>
+                        <RadioButton Style="{StaticResource ClassBoxRadioButton}" Margin="6">本月</RadioButton>
+                        <materialDesign:PopupBox PlacementMode="BottomAndAlignCentres" PopupMode="Click" >
+                            <materialDesign:PopupBox.ToggleContent>
+                                <TextBlock Text="123321"></TextBlock>
+                            </materialDesign:PopupBox.ToggleContent>
+                            <Grid x:Name="Gd_WordTransContent"  Background="Transparent" >
+                                <StackPanel Orientation="Vertical" Margin="10 10">
+                                    <Grid VerticalAlignment="Bottom" Height="48">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Text="feature" Background="Transparent"
+                                               Foreground="#353535"   Margin="10,10,10,5" 
+                                               FontSize="24"
+                                               VerticalAlignment="Bottom"  FontFamily="Microsoft YaHei" />
+
+                                        <TextBlock Grid.Column="1" Text="得分: 100分" Background="Transparent"
+                                               Foreground="#42b612"  Margin="10 10 0 10" 
+                                               FontSize="12" 
+                                               VerticalAlignment="Bottom"  FontFamily="Microsoft YaHei"/>
+                                    </Grid>
+                                    <!--<ContentControl Height="30"></ContentControl>
+                                <ContentControl Height="30"></ContentControl>-->
+                                    <Grid Margin="10">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock  Text="英" FontSize="12" Foreground="#aaaaaa"></TextBlock>
+                                            <TextBlock  Text="[ˈfi:tʃə(r)]" Margin="10 0 0 0" FontSize="12" Foreground="#aaaaaa"></TextBlock>
+                                            <TextBlock  Text="美" Margin="20 0 0 0" FontSize="12" Foreground="#aaaaaa"></TextBlock>
+                                            <TextBlock  Text="[ˈfitʃɚ]" Margin="10 0 0 0" FontSize="12" Foreground="#aaaaaa"></TextBlock>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid Margin="10" Width="320">
+                                        <TextBlock Text="n.特征，特点;容貌，面貌;特点;容貌，面貌;特点;容貌，面貌;（期刊的）特辑;故事片&#x0a;vt.使有特色;描写…的特征;以…为号召物&#x0a;vi.起主要作用;作重要角色" TextAlignment="Left" xml:space="preserve" LineHeight="24" FontSize="12" Foreground="#858585" TextWrapping="Wrap"></TextBlock>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                        </materialDesign:PopupBox>
+                        <controlEx:WordPopup WordContent="321123"></controlEx:WordPopup>
+                        <Button Style="{StaticResource ZYBeginButton}" Width="100" Height="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0" Content="开始作业" Click="Button_Click"></Button>
+
+                        <Button materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                                materialDesign:ButtonProgressAssist.IsIndeterminate="True" 
+                                materialDesign:ButtonProgressAssist.IndicatorBackground="White"
+                                materialDesign:ButtonProgressAssist.IndicatorForeground="#64e9ff"  Foreground="{DynamicResource GrayBrush6}"   
+                                Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                                Background="White" BorderBrush="Transparent" BorderThickness="0" 
+                                Focusable="False" Width="144" Height="144" VerticalAlignment="Top" HorizontalAlignment="Left">
+                            <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" Kind="VolumeHigh" Foreground="Aquamarine" />
+                        </Button>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <TextBox x:Name="TXT111" Grid.Row="0" Width="200" Height="60" Background="Transparent" BorderBrush="Transparent" >
+                                <TextBox.Text>
+                                    <Binding Path="TXT111" UpdateSourceTrigger="PropertyChanged">
+                                        <Binding.ValidationRules>
+                                            <domain:FeedBacktextValidationRule   ValidatesOnTargetUpdated="True" Minimum="5" Maximum="10000" />
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text></TextBox>
+                            <TextBox x:Name="TXT123" Grid.Row="1" 
+                                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox1}" 
+                                     materialDesign:HintAssist.Hint="请尽量详细描述问题（需不少于5字），能提供相关截图（截图不多于3张）就更好了哦~" 
+                                     materialDesign:HintAssist.Foreground="#9fb3b9"
+                                     BorderThickness="2"  Background="Aqua" 
+                                     Margin="2"
+                                     VerticalAlignment="Top"
+                                     HorizontalAlignment="Left"
+                                     AcceptsReturn="True"
+                                     TextWrapping="Wrap"
+                                     Width="577"
+                                     Height="110" VerticalScrollBarVisibility="Auto" 
+                                     materialDesign:HintAssist.IsFloating="False" MaxLength="1000" MaxLines="100">
+                                <TextBox.Text>
+                                    <Binding Path="Name" UpdateSourceTrigger="PropertyChanged">
+                                        <Binding.ValidationRules>
+                                            <domain:FeedBacktextValidationRule   Minimum="5" Maximum="10000"  />
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+                            <Grid Grid.Row="2">
+                                <WrapPanel>
+                                    <WrapPanel x:Name="ImgPanel">
+                                        <controlEx:ImageButton Icon="Resources/录音触碰话筒.png" IconHeight="96" IconWidth="96"></controlEx:ImageButton>
+<!--<Image Width="96" Height="96" Source="Resources/话筒太远.png"></Image>
+                                        <Image Width="96" Height="96" Source="Resources/距离嘴巴.png" Stretch="Fill"></Image>-->
+                                    </WrapPanel>
+                                    <Button Width="96" Height="96" Click="Button_Click_1">
+                                        <materialDesign:PackIcon Width="40" Height="40" Kind="Add" />
+                                    </Button>
+                                </WrapPanel>
+                            </Grid>
+                        </Grid>
+                        <Image gif:ImageBehavior.AnimatedSource="Resources/testgif.gif" Width="400" />
+                    </WrapPanel>
+                </Grid>
+            </materialDesign:DialogHost>
+        </Border>
+    </Grid>
+</Window>

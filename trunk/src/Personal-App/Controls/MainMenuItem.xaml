@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="Personal_App.Controls.MainMenuItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Personal_App.Controls"
+             mc:Ignorable="d"  Height="90" Width="128"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <ListViewItem x:Name="LviMenuItem" Height="90" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="TxtIcon" Grid.Row="0" Text="&#xe613;" FontFamily="{StaticResource IconFont}" FontSize="30" Margin="0"></TextBlock>
+            <TextBlock x:Name="TxtTitle" Grid.Row="1" Text="作业" Tag="ListBox" Margin="0 8 0 0"></TextBlock>
+        </Grid>
+    </ListViewItem>
+</UserControl>

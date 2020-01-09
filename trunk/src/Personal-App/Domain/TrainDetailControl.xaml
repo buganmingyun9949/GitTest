@@ -1,0 +1,132 @@
+﻿<UserControl x:Class="Personal_App.Domain.TrainDetailControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Personal_App.Domain"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf"
+             mc:Ignorable="d"  Width="262" Height="194"
+             d:DesignHeight="316" d:DesignWidth="358" FontFamily="Microsoft YaHei">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/CommonStyle.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+            <converters:BooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter" TrueValue="Collapsed" FalseValue="Visible" />
+
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.Background>
+            <!--{Binding PaperBg, FallbackValue=-->
+            <ImageBrush ImageSource="{Binding PaperBg, FallbackValue='../Resources/liebiao1.png'}"></ImageBrush>
+        </Grid.Background>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="160*"></RowDefinition>
+                <RowDefinition Height="7"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="1" Background="{DynamicResource WhiteBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="48"></RowDefinition>
+                    <RowDefinition Height="52"></RowDefinition>
+                    <RowDefinition Height="20"></RowDefinition>
+                    <RowDefinition Height="30*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!--试卷名称-->
+                <TextBlock Grid.Row="0" Text="{Binding PaperName, FallbackValue=训练试题01训练试题01训练试题01训练试题01训练试题01}" VerticalAlignment="Center"
+                       HorizontalAlignment="Center" Foreground="#537588"
+                       TextTrimming="CharacterEllipsis" FontSize="16"  Width="224" TextAlignment="Center" >
+                    <TextBlock.ToolTip>
+                        <ToolTip Style="{ DynamicResource DefaultToolTipStyle}"
+                             Content="{Binding PaperName, FallbackValue=训练试题01}">
+                        </ToolTip>
+                    </TextBlock.ToolTip>
+                </TextBlock>
+                <!--得分情况-->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="136"></ColumnDefinition>
+                        <ColumnDefinition Width="60*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="32"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <WrapPanel Grid.Row="0" Margin="6 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                            <TextBlock Text="{Binding TxtMyScoreLabel, FallbackValue=考试得分}"
+                                       Foreground="#a0b3ba" Margin="0 6 0 0" HorizontalAlignment="Center"
+                                       FontSize="12" >
+                            </TextBlock>
+                            <TextBlock Text="{Binding TxtMyScore, FallbackValue=30.0}"
+                                       Foreground="#a0b3ba" Margin="6 4 0 0" HorizontalAlignment="Center"
+                                       FontSize="14" >
+                            </TextBlock>
+                        </WrapPanel>
+                        <WrapPanel x:Name="StarPanel" Grid.Row="1" Margin="6 6 0 0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Image Source="{Binding TotalStarFiveScore,FallbackValue='/Resources/star_1.png'}" Height="10" HorizontalAlignment="Left" Visibility="{Binding ShowStarScore,FallbackValue=Visible}" />
+                            <Slider
+                                Width="108" Height="4"
+                                Maximum="100" Background="#efefef"
+                                Minimum="0" VerticalAlignment="Top" HorizontalAlignment="Center" IsEnabled="False"
+                                Style="{DynamicResource ExamCompleteProgress}"
+                                Value="{Binding TxtMyScoreProcess, FallbackValue=1}" Foreground="#30cc76"
+                                Visibility="{Binding ShowExamProcess,FallbackValue=Visible}" />
+                        </WrapPanel>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="32"></RowDefinition>
+                            <RowDefinition Height="20"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Line Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"  X1="1" Y1="15" X2="1" Y2="35" HorizontalAlignment="Left" VerticalAlignment="Center" Stroke="#efefef" StrokeThickness="1"></Line>
+                        <TextBlock Grid.Row="0" Text="{Binding TxtTotalScore, FallbackValue=30.0}" Foreground="#a0b3ba" Margin="30 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" ></TextBlock>
+                        <TextBlock Grid.Row="1" Text="总分" Foreground="#a0b3ba" Margin="30 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12"
+                                   Visibility="{Binding ShowExamProcess,FallbackValue=Visible}" ></TextBlock>
+                        <TextBlock Grid.Row="1" Text="总分" Foreground="#a0b3ba" Margin="30 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" Visibility="{Binding ShowStarScore,FallbackValue=Collapsed}" ></TextBlock>
+                    </Grid>
+                </Grid>
+                <!--进度信息  五星评价-->
+                <Grid Grid.Row="2">
+                    <Line  X1="10" Y1="0" X2="212" Y2="0" HorizontalAlignment="Left" VerticalAlignment="Center" Stroke="{DynamicResource GrayBrush5}" StrokeThickness="0.4"></Line>
+                </Grid>
+                <!--按钮操作-->
+                <Grid Grid.Row="3">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Visibility="{Binding ShowCompleteExamBtn,FallbackValue=Collapsed}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100*"></ColumnDefinition>
+                            <ColumnDefinition Width="6*"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Line Grid.Column="1" Margin="2 0 2 0" X1="0" Y1="28" X2="0" Y2="6" Stroke="Transparent" StrokeThickness="2" HorizontalAlignment="Center"></Line>
+                        <Button Grid.Column="2" Style="{StaticResource MainQsFlatButton}" Width="100" Content="再做一遍" Command="{Binding AgainExamCommand}" CommandParameter="MainDialog">
+                        </Button>
+                        <Button Grid.Column="0" Style="{StaticResource MainQsFlatButton}" Width="100" Content="查看报告" Command="{Binding ViewReportCommand}" CommandParameter="MainDialog"/>
+                    </Grid>
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Visibility="{Binding ShowContinueExamBtn,FallbackValue=Collapsed}">
+                        <Button  Style="{StaticResource MainQsFlatButton}" Width="100" Content="继续作答" Command="{Binding ContinueExamCommand}" CommandParameter="MainDialog">
+                        </Button>
+                    </Grid>
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Visibility="{Binding ShowStartExamBtn,FallbackValue=Visible}">
+                        <Button Style="{StaticResource MainQsFlatButton}" Width="100" Content="开始作答" IsEnabled="{Binding StartExamEnable, FallbackValue=False}" Command="{Binding StartExamCommand}" CommandParameter="MainDialog">
+                        </Button>
+                    </Grid>
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Visibility="{Binding ShowReUploadBtn,FallbackValue=Collapsed}">
+                        <Button Style="{StaticResource MainQsFlatButton}" Width="100" Content="上传答案" Foreground="#FF8618" Command="{Binding ReUploadCommand}" CommandParameter="MainDialog">
+                        </Button>
+                    </Grid>
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Visibility="{Binding ShowReDoBtn,FallbackValue=Collapsed}">
+                        <Button Style="{StaticResource MainQsFlatButton}" Width="100" Content="重新作答" Foreground="#FF8618" Command="{Binding ReDoExamCommand}" CommandParameter="MainDialog" >
+                        </Button>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+        <!--</Border>-->
+    </Grid>
+</UserControl>

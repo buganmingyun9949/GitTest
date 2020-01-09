@@ -1,0 +1,7 @@
+D:\项目\PC端\trunk\src\Framework.Network.HttpHelper\bin\Debug\Framework.Network.HttpHelper.xml
+D:\项目\PC端\trunk\src\Framework.Network.HttpHelper\bin\Debug\Framework.Network.HttpHelper.dll
+D:\项目\PC端\trunk\src\Framework.Network.HttpHelper\bin\Debug\Framework.Network.HttpHelper.pdb
+D:\项目\PC端\trunk\src\Framework.Network.HttpHelper\obj\Debug\Framework.Network.HttpHelper.dll
+D:\项目\PC端\trunk\src\Framework.Network.HttpHelper\obj\Debug\Framework.Network.HttpHelper.pdb
+D:\项目\PC端\trunk\src\Framework.Network.HttpHelper\obj\Debug\Framework.Network.HttpHelper.csprojAssemblyReference.cache
+D:\项目\PC端\trunk\src\Framework.Network.HttpHelper\obj\Debug\Framework.Network.HttpHelper.csproj.CoreCompileInputs.cache

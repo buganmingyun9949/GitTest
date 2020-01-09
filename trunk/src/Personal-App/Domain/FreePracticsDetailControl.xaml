@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="Personal_App.Domain.FreePracticsDetailControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Personal_App.Domain"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             d:DesignHeight="316" d:DesignWidth="358" Width="192" Height="102" FontFamily="Microsoft YaHei">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/CommonStyle.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ButtonEx.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Width="192" Height="102">
+        <Button  Width="192" Height="102" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent" Command="{Binding ShowFreePracticsUcCmd}" materialDesign:ShadowAssist.ShadowDepth="Depth0">
+            <Button.Background>
+                <ImageBrush ImageSource="{Binding BtnBgImg, FallbackValue='../Resources/lx1.png'}"></ImageBrush>
+            </Button.Background>
+            <Button.Content>
+                <TextBlock Text="{Binding TxtName, FallbackValue=练习}" FontSize="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+            </Button.Content>
+        </Button>
+    </Grid>
+</UserControl>

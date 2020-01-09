@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D7D555A0-0466-41F9-9863-04A2FA40D185}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST.Models</RootNamespace>
+    <AssemblyName>ST.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <LangVersion>6</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\AnswerListItem.cs" />
+    <Compile Include="Api\BlankAnswerItem.cs" />
+    <Compile Include="Api\ExamScoreItem.cs" />
+    <Compile Include="Api\ContinueExamItem.cs" />
+    <Compile Include="Api\AnswerModel.cs" />
+    <Compile Include="Api\Card.cs" />
+    <Compile Include="Api\CardsListItem.cs" />
+    <Compile Include="Api\ChoiceItem.cs" />
+    <Compile Include="Api\ExamDetailListItem.cs" />
+    <Compile Include="Api\UserInfo.cs" />
+    <Compile Include="Api\LoginData.cs" />
+    <Compile Include="Api\RetData.cs" />
+    <Compile Include="Api\SimulationItem.cs" />
+    <Compile Include="Api\QuestionListItem.cs" />
+    <Compile Include="Api\ReqModel.cs" />
+    <Compile Include="Api\RespObject.cs" />
+    <Compile Include="Api\RespCode.cs" />
+    <Compile Include="Api\Result.cs" />
+    <Compile Include="Paper\ExamListItem.cs" />
+    <Compile Include="Paper\Exam_Attend.cs" />
+    <Compile Include="Paper\Exam_Attend_Result.cs" />
+    <Compile Include="Paper\Exam_Attend_Result_Item.cs" />
+    <Compile Include="Paper\Paper_AnswersItem.cs" />
+    <Compile Include="Paper\Paper_Assets.cs" />
+    <Compile Include="Paper\Paper_DetailItem.cs" />
+    <Compile Include="Paper\Paper_Info.cs" />
+    <Compile Include="Paper\Paper_InfoItem.cs" />
+    <Compile Include="Paper\Paper_ItemsItem.cs" />
+    <Compile Include="Paper\SimulationPaper.cs" />
+    <Compile Include="RandomCode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Score\ScoreJsonResult.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

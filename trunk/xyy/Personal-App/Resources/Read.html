@@ -1,0 +1,253 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-878633-1"></script>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>正式考试</title>
+        <style type="text/css">
+                body {
+                    margin: 0px;
+                    padding: 0px;
+                    overflow: hidden;
+                    cursor: default;
+                    SCROLLBAR-FACE-COLOR: #dce9f6;
+                    SCROLLBAR-HIGHLIGHT-COLOR: #ffffff;
+                    SCROLLBAR-SHADOW-COLOR: #ffffff;
+                    SCROLLBAR-3DLIGHT-COLOR: #ffffff;
+                    SCROLLBAR-ARROW-COLOR: #ffffff;
+                    SCROLLBAR-TRACK-COLOR: #ffffff;
+                    SCROLLBAR-DARKSHADOW-COLOR: #ffffff;
+                    SCROLLBAR-BASE-COLOR: #ffffff;
+                }
+
+                .tab_bg {
+                    width: 100%;
+                    background-color: #ffffff;
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    z-index: 1;
+                }
+
+                    .tab_bg tr {
+                        height: 35px;
+                    }
+
+                        .tab_bg tr.gap {
+                            background-color: #e0f7d7;
+                        }
+
+                .content_body {
+                    width: 100%;
+                    position: absolute;
+                    z-index: 1000;
+                    line-height: 35px;
+                }
+
+                    .content_body #title {
+                        font-size: 60px;
+                        font-weight: bold;
+                        font-family: 黑体;
+                        margin-left: 20px;
+                        margin-top: 10px;
+                        padding-left: 68px;
+                    }
+
+                    .content_body #description {
+                        font-size: 28px;
+                        font-family: 黑体;
+                        margin-left: 20px;
+                        margin-right: 30px;
+                        padding-left: 72px;
+                        padding-right: 72px;
+                    }
+
+                    .content_body #content {
+                        font-size: 24px;
+                        font-family: "Times New Roman", Times, serif;
+                        margin-left: 20px;
+                        padding-left: 32px;
+                    }
+
+                        .content_body #content p {
+                            line-height: 35px;
+                            margin: 0px;
+                            padding-left: 40px;
+                            padding-right: 40px;
+                        }
+
+                        .content_body #content .choose {
+                            clear: both;
+                        }
+
+                            .content_body #content .choose ul {
+                                margin: 0px;
+                                padding: 0px;
+                                list-style-type: none;
+                                padding-left: 40px;
+                                padding-right: 40px;
+                                clear: both;
+                            }
+
+                                .content_body #content .choose ul li {
+                                    float: left;
+                                    min-width: 120px;
+                                    line-height: 35px;
+                                    margin-left: 10px;
+                                    margin-right: 50px;
+                                    vertical-align: middle;
+                                    white-space: nowrap;
+                                }
+
+                                    .content_body #content .choose ul li span {
+                                        display: inline-block;
+                                        *display: inline;
+                                        *zoom: 1;
+                                        white-space: nowrap;
+                                    }
+
+                .ds-image-container {
+                    text-align: left;
+                    padding-left: 80px;
+                }
+
+                p.highlight {
+                    background-color: #a1e9e5;
+                }
+
+                .title_page #paper_name {
+                    width: 100%;
+                    text-align: center;
+                    font-size: 35px;
+                    font-family: 黑体;
+                    margin-top: 30px;
+                    color: #999;
+                }
+
+                .title_page #paper_info {
+                    width: 100%;
+                    text-align: center;
+                    font-size: 50px;
+                    font-family: 黑体;
+                    margin-top: 200px;
+                }
+
+                /*.listen_btn{width:35px;height:35px; float:left;background-position:0px 0px; background-repeat:no-repeat;}
+            .listen_btn:hover{background-position:-35px 0px;}
+            .listen_btn.hidden{background-position:-70px 0px;}*/
+                .listen_btn {
+                    width: 35px;
+                    height: 35px;
+                    float: left;
+                    padding: 0px;
+                    margin-right: 5px;
+                    display: inline-block;
+                    *display: inline;
+                    *zoom: 1;
+                }
+
+                    .listen_btn.normal {
+                        background-position: 0px 0px;
+                    }
+
+                    .listen_btn.A {
+                        background-position: -70px 0px;
+                    }
+
+                    .listen_btn.B {
+                        background-position: -105px 0px;
+                    }
+
+                    .listen_btn.C {
+                        background-position: -140px 0px;
+                    }
+
+                    .listen_btn.D {
+                        background-position: -175px 0px;
+                    }
+                    /*.listen_btn:hover{background-position:-35px 0px;}*/
+                    .listen_btn.hidden {
+                        background-position: -220px 0px;
+                    }
+
+                .radio_btn {
+                    width: 18px;
+                    height: 18px;
+                    line-height: 18px;
+                    padding: 0px;
+                    margin-right: 5px;
+                    display: inline-block;
+                    *display: inline;
+                    *zoom: 1;
+                }
+
+                    .radio_btn.normal {
+                        background-position: 0px -35px;
+                    }
+
+                    .radio_btn.red {
+                        background-position: -18px -35px;
+                    }
+
+                    .radio_btn.green {
+                        background-position: -36px -35px;
+                    }
+
+                ul.highlight li {
+                    background-color: #a1e9e5;
+                }
+
+                .float_left {
+                    float: left;
+                }
+        </style>
+        <script type="text/javascript">
+            var highlightIndex = 0;
+            var allowsControl = false;
+
+            document.onselectstart = function (event) {
+                if (window.event) {
+                    event = window.event;
+                }
+                try {
+                    var the = event.srcElement;
+                    if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")) {
+                        return false;
+                    }
+                    return true;
+                } catch (e) {
+                    return false;
+                }
+            }
+            //加载界面
+            function loadUI(content) {
+
+                setExamInfo(content);
+            }
+            //清屏
+            function clearUI() {
+                document.getElementById("content").innerHTML = "";
+            }
+            function init(title, content) {
+
+                //document.getElementById("title").innerHTML = title;
+
+                setExamInfo(content);
+            }
+            function setExamInfo(content) {
+                document.getElementById("content").innerHTML = content;
+            }
+        </script>
+    </head>
+
+    <body>
+        <div id="content">
+            <span style="color:#ff6161;">Welcome</span> <span style="color:#ffa800;">to</span> <span style="color:#333333;">the</span> <span style="color:#ff6161;">Green</span> <span style="color:#ff6161;">Island</span> <span style="color:#ff6161;">National</span> <span style="color:#333333;">Park.</span> <span style="color:#ff6161;">We're</span> <span style="color:#ff6161;">going</span> <span style="color:#ff6161;">to</span> <span style="color:#ff6161;">visit</span> <span style="color:#ffa800;">the</span> <span style="color:#ffa800;">island</span> <span style="color:#ff6161;">in</span> <span style="color:#ffa800;">the</span> <span style="color:#ff6161;">lake</span> <span style="color:#ff6161;">today.</span> <span style="color:#333333;">It's</span> <span style="color:#ff6161;">really</span> <span style="color:#333333;">a</span> <span style="color:#ffa800;">beautiful</span> <span style="color:#ffa800;">park.</span> <span style="color:#ff6161;">First</span> <span style="color:#ff6161;">we'll</span> <span style="color:#ff6161;">take</span> <span style="color:#ffa800;">a</span> <span style="color:#ffa800;">boat</span> <span style="color:#333333;">to</span> <span style="color:#ffa800;">the</span> <span style="color:#ffa800;">island</span> <span style="color:#ffa800;">at</span> <span style="color:#ffa800;">9:00.</span> <span style="color:#ffa800;">The</span> <span style="color:#ffa800;">first</span> <span style="color:#ffa800;">place</span> <span style="color:#ff6161;">we</span> <span style="color:#333333;">will</span> <span style="color:#ff6161;">visit</span> <span style="color:#ff6161;">is</span> <span style="color:#ffa800;">a</span> <span style="color:#333333;">rose</span> <span style="color:#ff6161;">garden.</span> <span style="color:#ffa800;">Then</span> <span style="color:#ff6161;">we'll</span> <span style="color:#ffa800;">visit</span> <span style="color:#ffa800;">an</span> <span style="color:#ffa800;">old</span> <span style="color:#ff6161;">tower</span> <span style="color:#333333;">which</span> <span style="color:#ff6161;">has</span> <span style="color:#ffa800;">a</span> <span style="color:#ffa800;">history</span> <span style="color:#ff6161;">of</span> <span style="color:#ff6161;">300</span> <span style="color:#ff6161;">years.</span> <span style="color:#ff6161;">Lunch</span> <span style="color:#ff6161;">will</span> <span style="color:#333333;">be</span> <span style="color:#ff6161;">served</span> <span style="color:#ff6161;">at</span> <span style="color:#ff6161;">11:30.</span> <span style="color:#ffa800;">At</span> <span style="color:#333333;">the</span> <span style="color:#ffa800;">end</span> <span style="color:#ff6161;">of</span> <span style="color:#ff6161;">the</span> <span style="color:#ff6161;">trip,</span> <span style="color:#ff6161;">you'll</span> <span style="color:#ff6161;">see</span> <span style="color:#ff6161;">different</span> <span style="color:#ff6161;">kinds</span> <span style="color:#ff6161;">of</span> <span style="color:#ff6161;">birds</span> <span style="color:#ff6161;">at</span> <span style="color:#ff6161;">the</span> <span style="color:#ff6161;">Bird</span> <span style="color:#ff6161;">House.</span> <span style="color:#ff6161;">By</span> <span style="color:#ff6161;">the</span> <span style="color:#ff6161;">way,</span> <span style="color:#ff6161;">you</span> <span style="color:#ff6161;">can</span> <span style="color:#ff6161;">visit</span> <span style="color:#ff6161;">the</span> <span style="color:#ff6161;">gift</span> <span style="color:#ff6161;">shop</span> <span style="color:#ff6161;">and</span> <span style="color:#ff6161;">buy</span> <span style="color:#ff6161;">some</span> <span style="color:#ff6161;">gifts</span> <span style="color:#ff6161;">before</span> <span style="color:#ff6161;">we</span> <span style="color:#ff6161;">leave</span> <span style="color:#ff6161;">the</span> <span style="color:#ff6161;">island.</span> <span style="color:#ff6161;">We'll</span> <span style="color:#ff6161;">get</span> <span style="color:#ff6161;">back</span> <span style="color:#ff6161;">at</span> <span style="color:#ff6161;">six</span> <span style="color:#ff6161;">o'clock</span> <span style="color:#ff6161;">in</span> <span style="color:#ff6161;">the</span> <span style="color:#ff6161;">afternoon.</span> <span style="color:#ff6161;">I</span> <span style="color:#ff6161;">hope</span> <span style="color:#ff6161;">you</span> <span style="color:#ff6161;">will</span> <span style="color:#ff6161;">enjoy</span> <span style="color:#ff6161;">your</span> <span style="color:#ff6161;">visit</span> <span style="color:#ff6161;">to</span> <span style="color:#ff6161;">the</span> <span style="color:#ff6161;">island.</span>
+        </div>
+    </body>
+</html>

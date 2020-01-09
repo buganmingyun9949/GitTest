@@ -1,0 +1,680 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5DD790E1-4CD1-48B4-942F-65A088F8A5EA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Personal_App</RootNamespace>
+    <AssemblyName>Personal-App</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\PersonalII-App\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\PersonalII-App\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.3\lib\net40\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=0e453835af4ee6ce, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net40\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.4.1.0, Culture=neutral, PublicKeyToken=f46ff315b1088208, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net40\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="NAudio, Version=1.8.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.1.8.4\lib\net35\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WaveLibMixer, Version=1.0.2465.20582, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\WaveLibMixer.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Common\BackgroundTask.cs" />
+    <Compile Include="Common\ChangeWindowSize.cs" />
+    <Compile Include="Domain\CheckAudioDialog.xaml.cs">
+      <DependentUpon>CheckAudioDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\CustomDependencyProperties\MaxByteAttachedProperty.cs" />
+    <Compile Include="Domain\DownloadProgressDialog.xaml.cs">
+      <DependentUpon>DownloadProgressDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Exam\AudioPanel.xaml.cs">
+      <DependentUpon>AudioPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\AudioTest.xaml.cs">
+      <DependentUpon>AudioTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\AudioTestComplete.xaml.cs">
+      <DependentUpon>AudioTestComplete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\CloseExamDialog.xaml.cs">
+      <DependentUpon>CloseExamDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\BeginExamDialog.xaml.cs">
+      <DependentUpon>BeginExamDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\CardExpireDialog.xaml.cs">
+      <DependentUpon>CardExpireDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\CustomDependencyProperties\WindowProperties.cs" />
+    <Compile Include="Domain\DocumentationLink.cs" />
+    <Compile Include="Domain\DocumentationLinkType.cs" />
+    <Compile Include="Domain\Exam\ChangeVolumePanel.xaml.cs">
+      <DependentUpon>ChangeVolumePanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Exam\CheckHeadsetUC.xaml.cs">
+      <DependentUpon>CheckHeadsetUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Exam\ExamClosingDialog.xaml.cs">
+      <DependentUpon>ExamClosingDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Exam\ExamCompleteUC.xaml.cs">
+      <DependentUpon>ExamCompleteUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Exam\ExamMainWin.xaml.cs">
+      <DependentUpon>ExamMainWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Exam\ExamPage.xaml.cs">
+      <DependentUpon>ExamPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Exam\ExamQsMainWin.xaml.cs">
+      <DependentUpon>ExamQsMainWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Exam\ExamQuestion.cs" />
+    <Compile Include="Domain\Exam\ExamResultItem.cs" />
+    <Compile Include="Domain\Exam\ExamResultUC.xaml.cs">
+      <DependentUpon>ExamResultUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Exam\ExamWelcome.xaml.cs">
+      <DependentUpon>ExamWelcome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Exam\ResubmitAnswerDialog.xaml.cs">
+      <DependentUpon>ResubmitAnswerDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Exam\UserPanel.xaml.cs">
+      <DependentUpon>UserPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\ExpireCard.xaml.cs">
+      <DependentUpon>ExpireCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\BindingCard.xaml.cs">
+      <DependentUpon>BindingCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\LoginExpiredDialog.xaml.cs">
+      <DependentUpon>LoginExpiredDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\LogoffDialog.xaml.cs">
+      <DependentUpon>LogoffDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\MessageDialog.xaml.cs">
+      <DependentUpon>MessageDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\NotNetworkDialog.xaml.cs">
+      <DependentUpon>NotNetworkDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\OfflineTipsDialog.xaml.cs">
+      <DependentUpon>OfflineTipsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\PaperControl.xaml.cs">
+      <DependentUpon>PaperControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\RedoExamDialog.xaml.cs">
+      <DependentUpon>RedoExamDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Sample4Dialog.xaml.cs">
+      <DependentUpon>Sample4Dialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\ShowItem.cs" />
+    <Compile Include="Domain\BindCardOKDialog.xaml.cs">
+      <DependentUpon>BindCardOKDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\SampleDialog2.xaml.cs">
+      <DependentUpon>SampleDialog2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\SampleDialog.xaml.cs">
+      <DependentUpon>SampleDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\SampleProgressDialog.xaml.cs">
+      <DependentUpon>SampleProgressDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\SignOutDialog.xaml.cs">
+      <DependentUpon>SignOutDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\TestWindow.xaml.cs">
+      <DependentUpon>TestWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\WebBrowserHelper.cs" />
+    <Compile Include="Domain\UserInfoDialog.xaml.cs">
+      <DependentUpon>UserInfoDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ShuttingDownMessage.cs" />
+    <Compile Include="Model\VoiceRecorderState.cs" />
+    <Compile Include="TestWin.xaml.cs">
+      <DependentUpon>TestWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Exam\AudioPanelVM.cs" />
+    <Compile Include="ViewModel\BindingCardVM.cs" />
+    <Compile Include="ViewModel\CardExpireDialogVM.cs" />
+    <Compile Include="ViewModel\ControlModelState.cs" />
+    <Compile Include="ViewModel\DownloadPaperModel.cs" />
+    <Compile Include="ViewModel\DownloadProgressDialogVM.cs" />
+    <Compile Include="ViewModel\Exam\CheckHeadsetVM.cs" />
+    <Compile Include="ViewModel\Exam\ExamCommonVM.cs" />
+    <Compile Include="ViewModel\Exam\ExamCompleteVM.cs" />
+    <Compile Include="ViewModel\Exam\ExamQsMainWinVM.cs" />
+    <Compile Include="ViewModel\Exam\ExamMainWinVM.cs" />
+    <Compile Include="ViewModel\Exam\ExamResultVM.cs" />
+    <Compile Include="ViewModel\Exam\ExamWelcomeVM.cs" />
+    <Compile Include="ViewModel\ExpireCardVM.cs" />
+    <Compile Include="ViewModel\IView.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModelBase.cs" />
+    <Compile Include="ViewModel\MainWindowVM.cs" />
+    <Compile Include="ViewModel\MainLoginVM.cs" />
+    <Compile Include="ViewModel\MessageDialogVM.cs" />
+    <Compile Include="ViewModel\PaperControlVM.cs" />
+    <Compile Include="ViewModel\PhoneVerificationCode.cs" />
+    <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="ViewModel\SaveViewModel.cs" />
+    <Compile Include="ViewModel\SignOutDialogVM.cs" />
+    <Compile Include="ViewModel\SampleDialogViewModel.cs" />
+    <Compile Include="ViewModel\TestWinVM.cs" />
+    <Compile Include="ViewModel\UserDataModel.cs" />
+    <Compile Include="ViewModel\UserInfoDialogVM.cs" />
+    <Compile Include="ViewModel\Exam\UserPanelVM.cs" />
+    <Page Include="Domain\CheckAudioDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\DownloadProgressDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\Exam\AudioPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\AudioTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\AudioTestComplete.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Domain\CloseExamDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Domain\BeginExamDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Domain\CardExpireDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Domain\Exam\ChangeVolumePanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\Exam\CheckHeadsetUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\Exam\ExamClosingDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\Exam\ExamCompleteUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\Exam\ExamMainWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\Exam\ExamPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\Exam\ExamQsMainWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\Exam\ExamResultUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\Exam\ExamWelcome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\Exam\ResubmitAnswerDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\Exam\UserPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\ExpireCard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Domain\BindingCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\LoginExpiredDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\LogoffDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\MessageDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\NotNetworkDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\OfflineTipsDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\PaperControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\RedoExamDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\Sample4Dialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\BindCardOKDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Domain\SampleDialog2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Domain\SampleDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\SampleProgressDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\SignOutDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Domain\TestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Domain\UserInfoDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainLogin.xaml.cs">
+      <DependentUpon>MainLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="TestWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Config\log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DLL\skegn.provision" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Framework.Engine\Framework.Engine.csproj">
+      <Project>{b532540d-534f-4167-8beb-693134c6d928}</Project>
+      <Name>Framework.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.Logging\Framework.Logging.csproj">
+      <Project>{90254545-27c0-49bf-ae33-afc88f540d44}</Project>
+      <Name>Framework.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.Network.HttpHelper\Framework.Network.HttpHelper.csproj">
+      <Project>{966C2F8B-47E5-4E6D-ABFC-13501E739D25}</Project>
+      <Name>Framework.Network.HttpHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.Recorder\Framework.Recorder.csproj">
+      <Project>{6ad293a4-d9cb-4017-b850-af97cd67e749}</Project>
+      <Name>Framework.Recorder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.VoiceRecorder.Audio\Framework.VoiceRecorder.Audio.csproj">
+      <Project>{91edfcad-2495-44d2-bd45-7cc389c6d838}</Project>
+      <Name>Framework.VoiceRecorder.Audio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.VoiceRecorder.Core\Framework.VoiceRecorder.Core.csproj">
+      <Project>{9144e39b-f8e8-47d1-adcc-086e2e806778}</Project>
+      <Name>Framework.VoiceRecorder.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MahApps.Metro\MaterialDesignColors.Wpf\MaterialDesignColors.Wpf.csproj">
+      <Project>{90b53209-c60c-4655-b28d-a1b3e1044ba3}</Project>
+      <Name>MaterialDesignColors.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MahApps.Metro\MaterialDesignThemes.Wpf\MaterialDesignThemes.Wpf.csproj">
+      <Project>{f079fb0a-a8ed-4216-b6a5-345756751a04}</Project>
+      <Name>MaterialDesignThemes.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plugin.Exam.Qs\Plugin.Exam.Qs.csproj">
+      <Project>{F7BDEE1E-540B-4C94-841B-24DAD0908C1B}</Project>
+      <Name>Plugin.Exam.Qs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plugin.Exam.Report\Plugin.Exam.Report.csproj">
+      <Project>{7D4B33E5-A184-4393-B0AD-4EC24CDD4F48}</Project>
+      <Name>Plugin.Exam.Report</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ST.Common\ST.Common.csproj">
+      <Project>{a4db45ba-324e-47f6-929b-7b674a45aa78}</Project>
+      <Name>ST.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ST.Models\ST.Models.csproj">
+      <Project>{d7d555a0-0466-41f9-9863-04a2fa40d185}</Project>
+      <Name>ST.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ST.Style\ST.Style.csproj">
+      <Project>{afa91376-14b6-4310-afcf-2d61c2c1bdb9}</Project>
+      <Name>ST.Style</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\background.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\loginpic.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\topbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\bindCard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\overCard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\head.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\Convert\" />
+    <Folder Include="Controls\" />
+    <Folder Include="Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DLL\lib\icudt.dll" />
+    <Content Include="DLL\lib\libcef.dll" />
+    <Content Include="DLL\MahApps.Metro.dll" />
+    <Content Include="DLL\MaterialDesignColors.dll" />
+    <Content Include="DLL\MaterialDesignThemes.Wpf.dll" />
+    <Resource Include="Resources\距离嘴巴.png" />
+    <Resource Include="Resources\话筒略低.png" />
+    <Resource Include="Resources\话筒太远.png" />
+    <Resource Include="Resources\话筒太近.png" />
+    <Resource Include="Resources\star-5-44.png" />
+    <Resource Include="Resources\star-1-14.png" />
+    <Resource Include="Resources\star-1-24.png" />
+    <Resource Include="Resources\star-1-34.png" />
+    <Resource Include="Resources\star-1-44.png" />
+    <Resource Include="Resources\star-2-14.png" />
+    <Resource Include="Resources\star-2-24.png" />
+    <Resource Include="Resources\star-2-34.png" />
+    <Resource Include="Resources\star-2-44.png" />
+    <Resource Include="Resources\star-3-14.png" />
+    <Resource Include="Resources\star-3-24.png" />
+    <Resource Include="Resources\star-3-34.png" />
+    <Resource Include="Resources\star-3-44.png" />
+    <Resource Include="Resources\star-4-14.png" />
+    <Resource Include="Resources\star-4-24.png" />
+    <Resource Include="Resources\star-4-34.png" />
+    <Resource Include="Resources\star-4-44.png" />
+    <Resource Include="Resources\star-5-14.png" />
+    <Resource Include="Resources\star-5-24.png" />
+    <Resource Include="Resources\star-5-34.png" />
+    <None Include="Resources\volume_8.png" />
+    <None Include="Resources\volume_2.png" />
+    <None Include="Resources\volume_4.png" />
+    <None Include="Resources\volume_6.png" />
+    <None Include="Resources\star_0_1.png" />
+    <None Include="Resources\star_0_2.png" />
+    <None Include="Resources\star_0_3.png" />
+    <None Include="Resources\star_1.png" />
+    <None Include="Resources\star_1_1.png" />
+    <None Include="Resources\star_1_2.png" />
+    <None Include="Resources\star_1_3.png" />
+    <None Include="Resources\star_2.png" />
+    <None Include="Resources\star_2_1.png" />
+    <None Include="Resources\star_2_2.png" />
+    <None Include="Resources\star_2_3.png" />
+    <None Include="Resources\star_3.png" />
+    <None Include="Resources\star_3_1.png" />
+    <None Include="Resources\star_3_2.png" />
+    <None Include="Resources\star_3_3.png" />
+    <None Include="Resources\star_4.png" />
+    <None Include="Resources\star_4_1.png" />
+    <None Include="Resources\star_4_2.png" />
+    <None Include="Resources\star_4_3.png" />
+    <None Include="Resources\star_5.png" />
+    <Resource Include="Resources\new_lable.png" />
+    <Resource Include="Resources\newlable.png" />
+    <Resource Include="logo.ico" />
+    <Content Include="Resources\Di.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\star-0-0.png" />
+    <Resource Include="Resources\loginpic1.png" />
+    <Resource Include="Resources\loginpic2.png" />
+    <Content Include="Resources\P0.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\P0_1.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Start.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\star_0_0.png" />
+    <None Include="Resources\star_0_00.png" />
+    <None Include="Resources\startrecord.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\stoprecord.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Resources\topbg2.png" />
+    <Resource Include="Resources\user_edit.png" />
+    <Resource Include="Resources\录音触碰话筒.png" />
+    <Resource Include="Resources\topbg3.png" />
+    <Content Include="Resources\模考开头欢迎音频.mp3" />
+    <Resource Include="Resources\microphone_disable.png" />
+    <Resource Include="Resources\microphone_enabled.png" />
+    <Resource Include="Resources\speaker_disable.png" />
+    <Resource Include="Resources\speaker_enabled.png" />
+    <Resource Include="Resources\volume_disable.png" />
+    <Resource Include="Resources\volume_enabled.png" />
+    <None Include="Resources\Read.html" />
+    <Content Include="Resources\PTest.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\cup.png" />
+    <Resource Include="Resources\LeSpeaking.ico" />
+    <Resource Include="Resources\topbg1.png" />
+    <Resource Include="Resources\volume.png" />
+    <Resource Include="Resources\volume2.png" />
+    <Resource Include="Resources\Microphone.png" />
+    <Resource Include="Resources\speaker.png" />
+    <Resource Include="Resources\Microphone2.png" />
+    <Resource Include="Resources\speaker2.png" />
+    <Content Include="DLL\skegn.dll" />
+    <Content Include="DLL\WaveLibMixer.dll" />
+    <Resource Include="Resources\card_expire.png" />
+    <Resource Include="Resources\audio_test.png" />
+    <Resource Include="Resources\UserAvatar_100.png" />
+    <Resource Include="Resources\UserAvatar_90.png" />
+    <Resource Include="Resources\UserAvatar.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+</Project>

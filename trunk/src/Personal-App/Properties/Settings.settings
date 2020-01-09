@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Personal_App.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="LameExePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">lame.exe</Value>
+    </Setting>
+    <Setting Name="UpdateUrl111" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://static.365speak.cn/update/xyybs1/update_xyybs.xml</Value>
+    </Setting>
+    <Setting Name="NoHomework" Type="System.String" Scope="User">
+      <Value Profile="(Default)">您现在还没有新作业~</Value>
+    </Setting>
+    <Setting Name="NoOverHomework" Type="System.String" Scope="User">
+      <Value Profile="(Default)">您现在还没有完成的作业~</Value>
+    </Setting>
+    <Setting Name="UsedPhoneNum" Type="System.String" Scope="User">
+      <Value Profile="(Default)">该手机号已注册，请直接登录！</Value>
+    </Setting>
+    <Setting Name="ErrorCardNum" Type="System.String" Scope="User">
+      <Value Profile="(Default)">请输入有效的16位学习卡号~</Value>
+    </Setting>
+    <Setting Name="UpdateUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://static.365speak.cn/update/xyybs/{0}</Value>
+    </Setting>
+    <Setting Name="UpdateFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">update_xyybs.xml</Value>
+    </Setting>
+    <Setting Name="PaperDownloadTimeOut" Type="System.String" Scope="User">
+      <Value Profile="(Default)">网络连接超时，下载失败</Value>
+    </Setting>
+    <Setting Name="PaperDownloadTimeOut1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">你的网络开小差了，请检查网络设置后重新下载！</Value>
+    </Setting>
+    <Setting Name="NoExamPaper" Type="System.String" Scope="User">
+      <Value Profile="(Default)">莫急~ 内容正在路上，还有几站地就到 ~</Value>
+    </Setting>
+    <Setting Name="NoTrainPaper" Type="System.String" Scope="User">
+      <Value Profile="(Default)">莫急~ 内容正在路上，还有几站地就到 ~</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

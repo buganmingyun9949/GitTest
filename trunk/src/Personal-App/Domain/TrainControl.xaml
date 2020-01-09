@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="Personal_App.Domain.TrainControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Personal_App.Domain"
+             mc:Ignorable="d"
+             d:DesignHeight="170" d:DesignWidth="262" Height="149" Width="262" FontFamily="Microsoft YaHei">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/CommonStyle.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ButtonEx.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Button BorderBrush="Transparent" BorderThickness="0" Width="262" Height="149" Padding="0" Margin="0" Background="Transparent" Focusable="False" Command="{Binding StartTrainCommand}">
+        <Button.Content>
+            <Grid Width="262" Height="149" Cursor="Hand">
+                <!--<Grid.Effect>
+            <DropShadowEffect Opacity="0.5" BlurRadius="5" ShadowDepth="2" Color="#537588" />
+        </Grid.Effect>-->
+                <Grid.Background>
+                    <ImageBrush ImageSource="{Binding TrainBg, FallbackValue=../Resources/train1.png}"></ImageBrush>
+                </Grid.Background>
+                <Grid>
+                    <TextBlock Text="{Binding TrainTypeName, FallbackValue=朗读短文}" Style="{StaticResource TrainTitleStyle}" VerticalAlignment="Top" HorizontalAlignment="Left" TextAlignment="Left" Margin="21 93 0 0" Width="220" Height="22" FontSize="14" 
+                               TextTrimming="CharacterEllipsis" Foreground="#537588"></TextBlock>
+                    <TextBlock Text="{Binding TrainTypeNumName, FallbackValue=10道题目}" Style="{StaticResource TrainTitleStyle}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="21 118 0 0" FontSize="12" Foreground="#9FB2B9"></TextBlock>
+                </Grid>
+            </Grid>
+        </Button.Content>
+    </Button>
+</UserControl>

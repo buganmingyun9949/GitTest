@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="Personal_App.Domain.Menu.MenuSync"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Personal_App.Domain.Menu"
+             mc:Ignorable="d" 
+             d:DesignHeight="750" d:DesignWidth="800" Height="718" Width="896" FontFamily="Microsoft YaHei">
+    <Grid>
+        <WrapPanel x:Name="PaperContentPanel" Margin="2">
+            <Border Margin="68 25 25 25" Width="340" Height="388" CornerRadius="8" Background="White" >
+                <Grid>
+                    <Image Source="../../Resources/words.png"></Image>
+                    <!--<Button Width="98" Height="28" Margin="121 321 0 0" Command="{Binding ShowWordUcCmd}" Background="#30CC75" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" BorderThickness="0" BorderBrush="Transparent">开始练习</Button>-->
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 252 0 0" Text="单词跟读" Foreground="#537588" FontSize="18" ></TextBlock>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 279 0 0" Text="Word Repeating" Foreground="#9FB3B9" FontSize="14" ></TextBlock>
+                    <Button Style="{StaticResource ZYBeginButton}" Width="98" Height="28" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 321 0 0" Command="{Binding ShowWordUcCmd}" Content="开始练习" Visibility="{Binding BtnBeginZYView, FallbackValue=Visible}"></Button>
+                </Grid>
+            </Border>
+            <Border Margin="25" Width="340" Height="388" CornerRadius="8" Background="White" >
+                <Grid>
+                    <Image Source="../../Resources/sents.png"></Image>
+                    <!--<Button Width="98" Height="28" Margin="121 321 0 0" Command="{Binding ShowWordUcCmd}" Background="#30CC75" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" BorderThickness="0" BorderBrush="Transparent">开始练习</Button>-->
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 252 0 0" Text="课文跟读" Foreground="#537588" FontSize="18" ></TextBlock>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 279 0 0" Text="Text Repeating" Foreground="#9FB3B9" FontSize="14" ></TextBlock>
+                    <Button Style="{StaticResource ZYBeginButton}" Width="98" Height="28" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 321 0 0" Command="{Binding ShowPredUcCmd}" Content="开始练习" Visibility="{Binding BtnBeginZYView, FallbackValue=Visible}"></Button>
+                </Grid>
+            </Border>
+            <!--<Button Width="100" Height="200" Margin="50" Command="{Binding ShowPredUcCmd}" >句子</Button>-->
+        </WrapPanel> 
+    </Grid>
+</UserControl>

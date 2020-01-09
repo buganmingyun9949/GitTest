@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>fishlee.net.simpleupdater</id>
+    <version>4.3.0</version>
+    <authors>iFish(木鱼)</authors>
+    <owners>iFish(木鱼)</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://blog.fishlee.net/</projectUrl>
+    <iconUrl>https://ssl-static.fishlee.net/resources/images/coquette/32x32/promotion.png</iconUrl>
+    <description>A light weight automatic application updater library for .net 2.0/3.5/4.0/4.5.
+一个适用于 .NET 2.0/3.5/4.0/4.5 的高度易用的自动更新客户端。
+Please visit http://www.fishlee.net/soft/simple_autoupdater/ to get update package builder tool.
+请访问 http://www.fishlee.net/soft/simple_autoupdater/ 获得更新包打包工具。</description>
+    <tags>autoupdate updater automatic</tags>
+    <repository type="GIT" url="https://github.com/iccfish/FSLib.App.SimpleUpdater" />
+    <dependencies>
+      <group targetFramework=".NETFramework2.0" />
+      <group targetFramework=".NETFramework3.5" />
+      <group targetFramework=".NETFramework4.0" />
+      <group targetFramework=".NETFramework4.5" />
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Data" targetFramework=".NETFramework2.0, .NETFramework3.5, .NETFramework4.0, .NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Deployment" targetFramework=".NETFramework2.0, .NETFramework3.5, .NETFramework4.0, .NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Design" targetFramework=".NETFramework2.0, .NETFramework3.5, .NETFramework4.0, .NETFramework4.5" />
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework2.0, .NETFramework3.5, .NETFramework4.0, .NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Drawing" targetFramework=".NETFramework2.0, .NETFramework3.5, .NETFramework4.0, .NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Runtime.Remoting" targetFramework=".NETFramework2.0, .NETFramework3.5, .NETFramework4.0, .NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Web" targetFramework=".NETFramework2.0, .NETFramework3.5, .NETFramework4.0, .NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Windows.Forms" targetFramework=".NETFramework2.0, .NETFramework3.5, .NETFramework4.0, .NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Xml" targetFramework=".NETFramework2.0, .NETFramework3.5, .NETFramework4.0, .NETFramework4.5" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="E:\C#\EnglishExam\PersonalII\trunk\src\FSLib.App.SimpleUpdater\bin\Release\net20\en\SimpleUpdater.resources.dll" target="lib\net20\en\SimpleUpdater.resources.dll" />
+    <file src="E:\C#\EnglishExam\PersonalII\trunk\src\FSLib.App.SimpleUpdater\bin\Release\net20\SimpleUpdater.dll" target="lib\net20\SimpleUpdater.dll" />
+    <file src="E:\C#\EnglishExam\PersonalII\trunk\src\FSLib.App.SimpleUpdater\bin\Release\net35\en\SimpleUpdater.resources.dll" target="lib\net35\en\SimpleUpdater.resources.dll" />
+    <file src="E:\C#\EnglishExam\PersonalII\trunk\src\FSLib.App.SimpleUpdater\bin\Release\net35\SimpleUpdater.dll" target="lib\net35\SimpleUpdater.dll" />
+    <file src="E:\C#\EnglishExam\PersonalII\trunk\src\FSLib.App.SimpleUpdater\bin\Release\net40\en\SimpleUpdater.resources.dll" target="lib\net40\en\SimpleUpdater.resources.dll" />
+    <file src="E:\C#\EnglishExam\PersonalII\trunk\src\FSLib.App.SimpleUpdater\bin\Release\net40\SimpleUpdater.dll" target="lib\net40\SimpleUpdater.dll" />
+    <file src="E:\C#\EnglishExam\PersonalII\trunk\src\FSLib.App.SimpleUpdater\bin\Release\net45\en\SimpleUpdater.resources.dll" target="lib\net45\en\SimpleUpdater.resources.dll" />
+    <file src="E:\C#\EnglishExam\PersonalII\trunk\src\FSLib.App.SimpleUpdater\bin\Release\net45\SimpleUpdater.dll" target="lib\net45\SimpleUpdater.dll" />
+    <file src="E:\C#\EnglishExam\PersonalII\trunk\src\FSLib.App.SimpleUpdater\content\App.config.install.xdt" target="content\App.config.install.xdt" />
+    <file src="E:\C#\EnglishExam\PersonalII\trunk\src\FSLib.App.SimpleUpdater\content\App.config.uninstall.xdt" target="content\App.config.uninstall.xdt" />
+  </files>
+</package>

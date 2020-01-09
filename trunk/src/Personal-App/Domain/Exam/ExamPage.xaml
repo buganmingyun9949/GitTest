@@ -1,0 +1,122 @@
+﻿<UserControl x:Class="Personal_App.Domain.Exam.ExamPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Personal_App.Domain.Exam"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:core="clr-namespace:VoiceRecorder.Core;assembly=Framework.VoiceRecorder.Core"
+             mc:Ignorable="d" 
+             d:DesignHeight="768" d:DesignWidth="1024" FontFamily="Microsoft YaHei">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="Transparent">
+        <Border BorderThickness="1" BorderBrush="#30cc75" CornerRadius="15" Name="top" Background="White">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="54"></RowDefinition>
+                    <RowDefinition Height="600*"></RowDefinition>
+                    <RowDefinition Height="72"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Image x:Name="TopLogoImage" Margin="12 15 0 0" Stretch="None"
+                           VerticalAlignment="Top" HorizontalAlignment="Left">
+                    </Image>
+
+                    <TextBlock Margin="82 20 0 0" HorizontalAlignment="Left" VerticalAlignment="Top"
+                               Foreground="{DynamicResource WhiteBrush}" FontSize="16" FontWeight="Bold">
+                        模考系统
+                    </TextBlock>
+                    <Button Width="20" Height="20" Margin="0 20 15 0" FocusVisualStyle="{x:Null}"
+                            HorizontalAlignment="Right" VerticalAlignment="Top"
+                            Style="{DynamicResource MainCircleButtonStyle}" Foreground="White"
+                            Background="{DynamicResource GrayBrush5}"
+                            Command="{Binding RunExtendedDialogCommand}" CommandParameter="MainDialog">
+                        <materialDesign:PackIcon
+                            Width="24"
+                            Height="24"
+                            Kind="WindowClose" />
+                    </Button>
+                </Grid>
+                <Border Grid.Row="1" BorderThickness="0 1 0 1" BorderBrush="{DynamicResource GrayBrush8}">
+                    <Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="788*"></ColumnDefinition>
+                                <ColumnDefinition Width="220"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid>
+                            </Grid>
+                            <Grid Grid.Column="1" Background="#f6f6f6">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="550"></RowDefinition>
+                                    <RowDefinition Height="92"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <local:UserPanel Grid.Row="0" DataContext="{Binding UserPanelVM}"></local:UserPanel>
+                                <local:ChangeVolumePanel Grid.Row="1"></local:ChangeVolumePanel>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Grid Grid.Row="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="152"></ColumnDefinition>
+                            <ColumnDefinition Width="300*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Margin="42 0 0 0" Text="听语音..." Foreground="#ff6161" FontSize="20" FontWeight="Bold" Focusable="False" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        </TextBlock>
+                        <Grid Grid.Column="1" Visibility="Visible">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300*"></ColumnDefinition>
+                                <ColumnDefinition Width="220"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <TextBlock Text="3/10" Foreground="Black" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+                                <Slider IsEnabled="False" Width="620" Margin="0 40 0 0" Maximum="{Binding ElementName=TxtTotalTime, Path=Text, FallbackValue=1}" Minimum="0" VerticalAlignment="Top" HorizontalAlignment="Center" Style="{DynamicResource CountDownProgress}" Value="{Binding ElementName=TxtPlayingTime, Path=Text, FallbackValue=1}" Height="8" Foreground="#30cc75" />
+                            </Grid>
+                            <local:AudioPanel DataContext="{Binding AudioPanelVM}" Grid.Column="1"></local:AudioPanel>
+                            <!--<Grid Grid.Column="1">
+                                --><!--<materialDesign:PackIcon Kind="Microphone" Width="40" Height="40" />--><!--
+                                <Image x:Name="ImgMicrophone" Margin="20 0 0 0" Stretch="None" Width="36" Height="30"
+                                   VerticalAlignment="Center" HorizontalAlignment="Left"
+                                   Source="../../Resources/Microphone.png">
+                                    --><!--<Image.OpacityMask>
+                                    <VisualBrush Visual="{Binding ElementName=imageBorder}" />
+                                </Image.OpacityMask>--><!--
+                                </Image>
+                                <Image x:Name="ImgSpeaker" Margin="80 0 0 0" Stretch="None" Width="36" Height="30"
+                                   VerticalAlignment="Center" HorizontalAlignment="Left"
+                                   Source="../../Resources/speaker.png">
+                                </Image>
+                                --><!--<Image x:Name="ImgVolume2" Margin="136 0 20 0" Stretch="None" Width="66" Height="30"
+                                   VerticalAlignment="Center" HorizontalAlignment="Left"
+                                   Source="../../Resources/volume2.png">
+                            </Image>
+                            <Image x:Name="ImgVolume" Margin="136 0 20 0" Stretch="None" Width="55" Height="30"
+                                   VerticalAlignment="Center" HorizontalAlignment="Left"
+                                   Source="../../Resources/volume.png">
+                            </Image>--><!--
+                                <ProgressBar
+                                Width="70" Height="32"
+                                Margin="126,2,0,0" 
+                                Maximum="100"
+                                Minimum="0"
+                                VerticalAlignment="Center" HorizontalAlignment="Left"
+                                Style="{DynamicResource MicrophoneLevelProgressBar}"
+                                Value="100" Foreground="#30cc75" />
+                            </Grid>-->
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+        </Border>
+    </Grid>
+</UserControl>

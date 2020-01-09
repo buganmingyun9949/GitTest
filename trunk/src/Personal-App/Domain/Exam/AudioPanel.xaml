@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="Personal_App.Domain.Exam.AudioPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="72" d:DesignWidth="220" Height="72" Width="220">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/SliderEx.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Grid.Column="1">
+        <Image x:Name="ImgMicrophone" Margin="30 0 0 0" Stretch="None" Width="22" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Source="{Binding MicrophoneImageSource}" IsEnabled="False">
+        </Image>
+        <Image x:Name="ImgSpeaker" Margin="82 0 0 0" Stretch="None" Width="22" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Source="{Binding SpeakerImageSource}">
+        </Image>
+        <Image x:Name="ImgVolume" Margin="0,0,30,0" Stretch="None" Width="54" Height="30" VerticalAlignment="Center" HorizontalAlignment="Right" Source="{Binding VolumeImageSource}">
+        </Image>
+        <!--<ProgressBar x:Name="VolumeControl" Width="70" Height="36" Margin="136,2,0,0" Maximum="100" Minimum="0" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{DynamicResource MicrophoneLevelProgressBar}" Value="100" Foreground="#30cc75" ,FallbackValue = '../../Resources/logo2.png'/>-->
+    </Grid>
+</UserControl>

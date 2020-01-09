@@ -1,0 +1,387 @@
+﻿<UserControl x:Class="Personal_App.Domain.Exam.CheckHeadsetUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Personal_App.Domain.Exam"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:core="clr-namespace:VoiceRecorder.Core;assembly=Framework.VoiceRecorder.Core"
+             xmlns:domain="clr-namespace:ST.Common.Domain;assembly=ST.Common"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" Width="1024" Height="768"
+             d:DesignHeight="768" d:DesignWidth="1024" FontFamily="Microsoft YaHei">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/SliderEx.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ButtonEx.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ExamStyleEx.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/DialogStyleEx.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <domain:DataConverter x:Key="dataConverter"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <materialDesign:DialogHost DialogClosing="DialogHost_OnDialogClosing" Identifier="CheckHeadsetDialog" DialogMargin="0">
+            <materialDesign:DialogHost.DialogContent>
+                <Grid Width="320" Height="230">
+                    <Border Background="White" BorderBrush="White" BorderThickness="1" CornerRadius="5">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60"></RowDefinition>
+                                <RowDefinition Height="110"></RowDefinition>
+                                <RowDefinition Height="60"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Border BorderBrush="#EEEEEE" BorderThickness="0 0 0 1">
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#666666" FontSize="18" FontStyle="Normal" FontWeight="Normal" Text="是否退出模考"></TextBlock>
+                                </Border>
+                            </Grid>
+                            <Grid Grid.Row="1" Margin="34 18">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Margin="0 6" Style="{DynamicResource MaterialDesignSubheadingTextBlock}" VerticalAlignment="Center" Foreground="#666666" TextWrapping="Wrap" FontSize="16" LineHeight="32" Text="您还未完成考试，确定要结束考试并退出吗？"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="2" Background="#EEEEEE">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="1"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Column="1" Grid.Row="1" Height="1" Background="#EEEEEE"></Border>
+                                <Button Grid.Column="0" Grid.Row="1" IsDefault="True" VerticalAlignment="Bottom" Style="{DynamicResource MaterialDesignDialogButton}" Foreground="#1FD0FF" Background="#FFFFFF" BorderBrush="Transparent" FontSize="18" Height="60" Content="确定退出" FontStyle="Normal" FontWeight="Normal" Command="materialDesign:DialogHost.CloseDialogCommand" >
+                                    <Button.CommandParameter>
+                                        <system:Boolean>True</system:Boolean>
+                                    </Button.CommandParameter>
+                                </Button>
+                                <Border Grid.Column="1" Grid.Row="1" Width="1" Background="#EEEEEE"></Border>
+                                <Button Grid.Column="2" Grid.Row="1" IsCancel="True" VerticalAlignment="Bottom" Style="{DynamicResource MaterialDesignDialogButton}" Foreground="#1FD0FF" Background="#FFFFFF" BorderBrush="Transparent" FontSize="18" Height="60" Content="继续模考" FontStyle="Normal" FontWeight="Normal" Command="materialDesign:DialogHost.CloseDialogCommand">
+                                    <Button.CommandParameter>
+                                        <system:Boolean>False</system:Boolean>
+                                    </Button.CommandParameter>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </materialDesign:DialogHost.DialogContent>
+            <Grid Margin="0" Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="54"></RowDefinition>
+                    <RowDefinition Height="600*"></RowDefinition>
+                    <RowDefinition Height="72"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Image x:Name="TopLogoImage" Margin="12 15 0 0" Stretch="None" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    </Image>
+                    <TextBlock Margin="12 17 0 0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#51D7FF" FontSize="16" FontWeight="Bold" Text="英语说">
+                    </TextBlock>
+                    <Button  x:Name="CurrentCloseBtn" Width="24" Height="24" Margin="0 16 18 0" FocusVisualStyle="{x:Null}"
+                             HorizontalAlignment="Right" VerticalAlignment="Top"
+                             Style="{DynamicResource ButtonStyle}" Foreground="#1FD0FF"
+                             Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" ToolTip="返回 首页">
+                        <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" Kind="UndoVariant" />
+                    </Button>
+                </Grid>
+                <Border Grid.Row="1" BorderThickness="0 1 0 1" BorderBrush="{DynamicResource GrayBrush8}">
+                    <Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="788*"></ColumnDefinition>
+                                <ColumnDefinition Width="220"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="80"></RowDefinition>
+                                    <RowDefinition Height="180"></RowDefinition>
+                                    <RowDefinition Height="50"></RowDefinition>
+                                    <RowDefinition Height="42*"></RowDefinition>
+                                    <RowDefinition Height="208*"></RowDefinition>
+                                    <RowDefinition Height="80"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Text="请按照图示佩戴耳机" Foreground="#01B8E8" FontSize="24"
+                                          FontFamily="SimSun" FontWeight="Bold" Margin="40 40 0 0" VerticalAlignment="Top"
+                                           HorizontalAlignment="Left" Focusable="False">
+                                </TextBlock>
+
+                                <Grid Grid.Row="1">
+                                    <WrapPanel Margin="0 8" VerticalAlignment="Top" HorizontalAlignment="Center">
+                                        <Grid Margin="0 5 0 0">
+                                            <Image x:Name="img1" Margin="10 0 0 0" Stretch="Fill" Width="112"
+                                                   Height="112"
+                                                   VerticalAlignment="Center" HorizontalAlignment="Left"
+                                                   Source="../../Resources/话筒略低.png">
+                                            </Image>
+                                        </Grid>
+                                        <Grid Margin="30 5 0 0">
+                                            <Image x:Name="img2" Margin="10 0 0 0" Stretch="Fill" Width="112"
+                                                   Height="112"
+                                                   VerticalAlignment="Center" HorizontalAlignment="Left"
+                                                   Source="../../Resources/距离嘴巴.png">
+                                            </Image>
+                                        </Grid>
+                                        <Grid Margin="30 5 0 0">
+                                            <Image x:Name="img3" Margin="10 0 0 0" Stretch="Fill" Width="112"
+                                                   Height="112"
+                                                   VerticalAlignment="Center" HorizontalAlignment="Left"
+                                                   Source="../../Resources/录音触碰话筒.png">
+                                            </Image>
+                                        </Grid>
+                                        <Grid Margin="30 5 0 0">
+                                            <Image x:Name="img4" Margin="10 0 0 0" Stretch="Fill" Width="112"
+                                                   Height="112"
+                                                   VerticalAlignment="Center" HorizontalAlignment="Left"
+                                                   Source="../../Resources/话筒太远.png">
+                                            </Image>
+                                        </Grid>
+                                        <Grid Margin="30 5 0 0">
+                                            <Image x:Name="img5" Margin="10 0 0 0" Stretch="Fill" Width="112"
+                                                   Height="112"
+                                                   VerticalAlignment="Center" HorizontalAlignment="Left"
+                                                   Source="../../Resources/话筒太近.png">
+                                            </Image>
+                                        </Grid>
+                                    </WrapPanel>
+                                    <Grid>
+                                        <TextBlock Text="话筒略低于嘴巴，距离嘴巴 2-3CM" Foreground="#666666" FontSize="16" Margin="42 136 0 0" FontFamily="SimSun" VerticalAlignment="Top" HorizontalAlignment="Left" Focusable="False" />
+                                        <TextBlock
+                                            Text="录音过程用手触碰话筒"
+                                            Foreground="#666666" FontSize="16" Margin="322 136 0 0" FontFamily="SimSun"
+                                            VerticalAlignment="Top" HorizontalAlignment="Left" Focusable="False" />
+
+                                        <TextBlock
+                                            Text="话筒距离太远"
+                                            Foreground="#666666" FontSize="16" Margin="512 136 0 0" FontFamily="SimSun"
+                                            VerticalAlignment="Top" HorizontalAlignment="Left" Focusable="False" />
+
+                                        <TextBlock
+                                            Text="话筒距离太近"
+                                            Foreground="#666666" FontSize="16" Margin="664 136 0 0" FontFamily="SimSun"
+                                            VerticalAlignment="Top" HorizontalAlignment="Left" Focusable="False" />
+                                    </Grid>
+                                </Grid>
+
+                                <TextBlock Grid.Row="2" Text="录音、播放测试" Foreground="#01b8e8" FontSize="24"
+                                           Margin="40 0 0 0" VerticalAlignment="Center" FontFamily="SimSun" FontWeight="Bold"
+                                           HorizontalAlignment="Left" Focusable="False">
+                                </TextBlock>
+                                <TextBlock Grid.Row="3" Text="朗读任意一段试音内容，并在界面右下角调节录（放）音音量。" FontSize="20"
+                                           Foreground="#333333"
+                                           FontWeight="Normal" Margin="40 0 0 0" VerticalAlignment="Center" FontFamily="SimSun"
+                                           HorizontalAlignment="Left" Focusable="False">
+                                </TextBlock>
+                                <Border Grid.Row="4" Width="720" Height="180" Margin="0 6" Background="#F6F6F6" CornerRadius="5">
+                                    <Grid>
+                                        <TextBlock Text="生活就像海洋，只有意志坚强的人，才能到达彼岸。" Foreground="#999999" FontSize="18"
+                                                   FontWeight="Bold" Margin="0 42 0 0" VerticalAlignment="Top" FontFamily="SimSun"
+                                                   HorizontalAlignment="Center" Focusable="False" />
+                                        <TextBlock
+                                            Text="This is an apple, I like apples. Apples are good for our health."
+                                            Foreground="#999999" FontSize="20" Margin="0 80 0 0" FontFamily="SimSun"
+                                            VerticalAlignment="Top" HorizontalAlignment="Center" Focusable="False" />
+
+                                        <Button x:Name="BtnPlayTestAudio" Width="32" Height="32" Padding="0"
+                                                Margin="0 0 16 16" VerticalAlignment="Bottom"
+                                                HorizontalAlignment="Right" Style="{DynamicResource CheckRecordButton}"
+                                                Background="#1FD0FF" Command="{Binding PlayTestAudioCommand}"
+                                                IsEnabled="{Binding TestAudioButtonEnabled,FallbackValue=False}">
+                                            <materialDesign:PackIcon x:Name="PlayTestAudioIcon" Width="30" Height="30"  HorizontalAlignment="Center" VerticalAlignment="Center" Kind="{Binding PlayIcon, FallbackValue=Play}" Foreground="White" />
+                                            <!-- pause stop -->
+                                            <Button.CommandParameter>
+                                                <MultiBinding Converter="{ StaticResource ResourceKey=dataConverter}" Mode="TwoWay">
+                                                    <MultiBinding.Bindings>
+                                                        <Binding ElementName="BtnPlayTestAudio" />
+                                                        <Binding ElementName="PlayTestAudioIcon" />
+                                                    </MultiBinding.Bindings>
+                                                </MultiBinding>
+                                            </Button.CommandParameter>
+                                        </Button>
+                                    </Grid>
+                                </Border>
+                                <Grid Grid.Row="5">
+                                    <Button Margin="0 0 4 4" Padding="0" Width="80" Height="24" Style="{DynamicResource CheckRecordButton}" Background="{DynamicResource GrayBrush5}" FontSize="14" Content="跳过测试" Command="{Binding SkipTestCommand}"
+                                            CommandParameter="CheckHeadsetDialog" FontFamily="Microsoft YaHei" Foreground="#FFFFFF" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                                    </Button>
+                                    <Grid VerticalAlignment="Center" HorizontalAlignment="Center"
+                                          Visibility="{Binding ShowBeginRecordBtn, FallbackValue=Visible}">
+                                        <Button IsEnabled="{Binding BeginRecordingEnabled,FallbackValue=True, Mode=TwoWay}" Width="100" Height="36" Style="{DynamicResource CheckRecordButton}" FontSize="16" Content="开始录音" Command="{Binding BeginRecordingCommand}" FontFamily="Microsoft YaHei" Foreground="#FFFFFF">
+                                        </Button>
+                                    </Grid>
+                                    <Grid VerticalAlignment="Center" HorizontalAlignment="Center"
+                                          Visibility="{Binding ShowThreeBtn, FallbackValue=Collapsed}">
+                                        <WrapPanel>
+                                            <Button
+                                                Width="100" Height="36"
+                                                Style="{DynamicResource CheckRecordButton}" Margin="10 0 10 0"
+                                                FontSize="16" FontFamily="Microsoft YaHei" Foreground="#FFFFFF"
+                                                Content="清  晰" Command="{Binding GoodRecordCommand}"
+                                                CommandParameter="CheckHeadsetDialog">
+                                            </Button>
+                                            <Button
+                                                Width="100" Height="36"
+                                                Style="{DynamicResource CheckRecordButton}" Margin="10 0 10 0"
+                                                FontSize="16" FontFamily="Microsoft YaHei" Foreground="#FFFFFF"
+                                                Content="不清晰" Command="{Binding BadRecordCommand}">
+                                            </Button>
+                                            <Button Style="{DynamicResource CheckRecordButton}" 
+                                                Width="100" Height="36"
+                                                Margin="10 0 10 0"
+                                                FontSize="16" FontFamily="Microsoft YaHei" Foreground="#FFFFFF"
+                                                Content="录音回放" Command="{Binding PlayRecordAgainCommand}"
+                                                IsEnabled="{Binding PlayRecordAgainEnabled, FallbackValue=False}">
+                                            </Button>
+                                            <!--Style="{DynamicResource CheckRecordGrayButton}"-->
+                                        </WrapPanel>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Column="1" Background="#f6f6f6">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="550"></RowDefinition>
+                                    <RowDefinition Height="92"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <local:UserPanel Grid.Row="0" Visibility="Visible" DataContext="{Binding UserPanelVM}"></local:UserPanel>
+                                <local:ChangeVolumePanel Grid.Row="1" Visibility="Collapsed"></local:ChangeVolumePanel>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Grid Grid.Row="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140"></ColumnDefinition>
+                            <ColumnDefinition Width="300*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding PromptCommandText, FallbackValue = '听语音'}"
+                                   Foreground="#FF6161" FontSize="20" FontWeight="Bold" FontFamily="PingFang SC Regular" Focusable="False"
+                                   VerticalAlignment="Center" HorizontalAlignment="Left" Margin="40 5 0 0">
+                        </TextBlock>
+                        <!-- old 
+                        <Grid Grid.Column="1" Visibility="Collapsed">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300*"></ColumnDefinition>
+                                <ColumnDefinition Width="220"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <TextBlock Text="3/10" Foreground="Black" FontSize="24" FontWeight="Bold"
+                                           VerticalAlignment="Top" HorizontalAlignment="Center">
+                                </TextBlock>
+                                <Slider
+                                    Width="620"
+                                    Margin="0 40 0 0"
+                                    Maximum="100"
+                                    Minimum="0" VerticalAlignment="Top" HorizontalAlignment="Center"
+                                    Style="{DynamicResource CountDownProgress}"
+                                    Value="50" Foreground="#ff6161" />
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Image x:Name="ImgMicrophone" Margin="20 0 0 0" Stretch="None" Width="36" Height="30"
+                                       VerticalAlignment="Center" HorizontalAlignment="Left"
+                                       Source="../../Resources/Microphone.png">
+                                </Image>
+                                <Image x:Name="ImgSpeaker" Margin="80 0 0 0" Stretch="None" Width="36" Height="30"
+                                       VerticalAlignment="Center" HorizontalAlignment="Left"
+                                       Source="../../Resources/speaker.png">
+                                </Image>
+                                <ProgressBar
+                                    Width="70" Height="50"
+                                    Margin="136,2,0,0"
+                                    Maximum="100"
+                                    Minimum="0"
+                                    VerticalAlignment="Top" HorizontalAlignment="Left"
+                                    Style="{DynamicResource MicrophoneLevelProgressBar}"
+                                    Value="100" Foreground="#1fD0FF" />
+                            </Grid>
+                        </Grid>-->
+
+                        <Grid Grid.Column="1" Visibility="{Binding CountdownVisibility,FallbackValue= Collapsed}" >
+                            <WrapPanel Margin="235,23,635,25" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock x:Name="TxtCountdown" FontSize="20" FontWeight="Bold" Foreground="#01B8E8" Text="{Binding CountdownTime, FallbackValue=3}"></TextBlock>
+                            </WrapPanel>
+                        </Grid>
+
+                        <Grid Grid.Column="1" Visibility="{Binding PromptVisibility,FallbackValue= Visible}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="400*"></ColumnDefinition>
+                                <ColumnDefinition Width="210"></ColumnDefinition>
+                                <ColumnDefinition Width="210"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <core:PolygonWaveFormControl Grid.Column="0" 
+                                                         x:Name="PwFormControl" Margin="5" Height="40" Width="420"
+                                                         SampleAggregator="{Binding SampleAggregator}"
+                                                         IsEnabled="{Binding ShowWaveForm, FallbackValue=False}"
+                                                         Background="White"
+                                                         Visibility="{Binding ShowPolygonWaveForm, FallbackValue=Collapsed}" />
+                            <Grid Grid.Column="0" Visibility="{Binding ShowProgressUC, FallbackValue=Visible}">
+                                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 10 0 0">
+                                    <TextBlock x:Name="TxtPlayingTime" FontSize="20" FontWeight="Bold" FontFamily="PingFang SC Semibold"
+                                               Foreground="#ff6161" Text="{Binding PlayingTime, FallbackValue=0}">
+                                    </TextBlock>
+                                    <TextBlock FontSize="20" FontWeight="Bold" Foreground="#444444" Text=" / " FontFamily="PingFang SC Semibold"></TextBlock>
+                                    <TextBlock x:Name="TxtTotalTime" FontSize="20" FontWeight="Bold"
+                                               Foreground="#444444" Text="{Binding TotalTime, FallbackValue=20}" FontFamily="PingFang SC Semibold">
+                                    </TextBlock>
+                                </WrapPanel>
+                                <Slider IsEnabled="False"
+                                        Width="462" Height="8"
+                                        Margin="0 10 0 0"
+                                        Maximum="{Binding ElementName=TxtTotalTime, Path=Text, FallbackValue=1}"
+                                        Minimum="0" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                        Style="{DynamicResource CountDownProgress}"
+                                        Value="{Binding ElementName=TxtPlayingTime, Path=Text, FallbackValue=1}"
+                                        Foreground="#1FD0FF" />
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="62"></ColumnDefinition>
+                                    <ColumnDefinition Width="164"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" x:Name="ImgMicrophone2" Margin="26 0 0 -5" Stretch="Uniform" Width="25" Height="30" VerticalAlignment="Center" HorizontalAlignment="Left" Source="../../Resources/Microphone.png">
+                                </Image>
+                                <Slider Grid.Column="1" x:Name="MicrophoneVolumeSlider" Margin="0 4 0 20" Width="120" Maximum="100" Minimum="0" VerticalAlignment="Center" HorizontalAlignment="Left"
+                                        Style="{DynamicResource ProgressSliderEx}" Value="100" Foreground="#1FD0FF" ValueChanged="MicrophoneVolumeSlider_ValueChanged" />
+                            </Grid>
+                            <Grid Grid.Column="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="62"></ColumnDefinition>
+                                    <ColumnDefinition Width="164"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" x:Name="ImgSpeaker2" Margin="10 0 0 -5" Stretch="None" Width="36" Height="30"
+                                       VerticalAlignment="Center" HorizontalAlignment="Left"
+                                       Source="../../Resources/speaker.png">
+                                </Image>
+                                <Slider Grid.Column="1" x:Name="VoiceVolumeSlider" Width="120" Margin="0 4 0 20" Maximum="100" Minimum="0" VerticalAlignment="Center" HorizontalAlignment="Left"
+                                        Style="{DynamicResource ProgressSliderEx}" Value="100" Foreground="#1FD0FF" ValueChanged="VoiceVolumeSlider_ValueChanged" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </materialDesign:DialogHost>
+        <Button x:Name="CloseBtn" Visibility="Collapsed" Width="22" Height="22" Margin="0 20 115 0"
+                FocusVisualStyle="{x:Null}"
+                HorizontalAlignment="Right" VerticalAlignment="Top"
+                Foreground="White"
+                Background="{DynamicResource GrayBrush5}"
+                Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+            <Button.CommandParameter>
+                <system:Boolean>True</system:Boolean>
+            </Button.CommandParameter>
+            <materialDesign:PackIcon
+                Width="18"
+                Height="18" HorizontalAlignment="Center" VerticalAlignment="Center"
+                Kind="WindowClose" />
+        </Button>
+    </Grid>
+</UserControl>
+

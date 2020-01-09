@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="Plugin.Exam.Qs.View.ReadSentenceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Plugin.Exam.Qs.View"
+             xmlns:domain="clr-namespace:ST.Common.Domain;assembly=ST.Common"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="780" FontFamily="Microsoft YaHei">
+    <!-- 听小对话 回答问题 -->
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/SliderEx.xaml">
+                </ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ButtonEx.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/ExamStyleEx.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/ST.Style;component/ControlEx/DialogStyleEx.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <domain:ValueConverter x:Key="valueConverter"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="6"></RowDefinition>
+                <RowDefinition Height="380*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="{Binding QsTitle,FallbackValue=第一题  朗读句子。（共5小题，每小题1分，共5分）}" Style="{DynamicResource BigTitleStyle}" Margin="40 40 0 8" FontFamily="SimSun" TextWrapping="WrapWithOverflow"></TextBlock>
+            <TextBlock Grid.Row="1" Text="{Binding QsTitleContent,FallbackValue=请用规范的英语语音、语调朗读下面五个句子，请先听两遍示范。现在你有10秒钟的时间准备朗读句子，当听到 开始录音 的信号后，请在10秒内朗读句子一遍；当听到要求 停止录音 的信号时，应立即终止做题。}" Style="{DynamicResource SecondTitleStyle}" Margin="90 10 68 10" FontFamily="SimSun" TextWrapping="WrapWithOverflow" LineHeight="30"></TextBlock>
+            <!--<TextBlock Grid.Row="2" Text="{Binding TitleTwo, FallbackValue='听下面一段对话，回答第 1 至第 2 题。现在你有 10 秒钟的时间阅读这两道小题。'}" Style="{DynamicResource SecondTitleStyle}" Margin="90 10 68 0"  Visibility="{Binding TitleTextVisibility,FallbackValue=Visible}" FontFamily="SimSun" TextWrapping="WrapWithOverflow"></TextBlock>-->
+            <Grid Grid.Row="3" Visibility="{Binding ChoiceTextVisibility,FallbackValue=Visible}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="120*"></RowDefinition>
+                    <!--<RowDefinition Height="80*"></RowDefinition>-->
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <TextBlock Grid.Row="0" Text="{Binding QsItemContent, FallbackValue=1.朗读句子1}" Style="{DynamicResource OptionTitleStyle}" Width="640" Margin="90 10 20 0" FontFamily="SimSun" TextWrapping="WrapWithOverflow" LineHeight="32"></TextBlock>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

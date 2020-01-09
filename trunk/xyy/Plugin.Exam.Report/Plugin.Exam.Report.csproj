@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7D4B33E5-A184-4393-B0AD-4EC24CDD4F48}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Plugin.Exam.Report</RootNamespace>
+    <AssemblyName>Plugin.Exam.Report</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.3\lib\net40\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=0e453835af4ee6ce, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net40\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.4.1.0, Culture=neutral, PublicKeyToken=f46ff315b1088208, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net40\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio, Version=1.8.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.1.8.4\lib\net35\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Vorbis, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.Vorbis.1.0.0.0\lib\net35\NAudio.Vorbis.dll</HintPath>
+    </Reference>
+    <Reference Include="NVorbis, Version=0.8.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NVorbis.0.8.5.0\lib\NVorbis.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="SharpDX, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.4.1.0\lib\net40\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.DirectSound, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.DirectSound.4.1.0\lib\net40\SharpDX.DirectSound.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\PlayAudioViewUC.xaml.cs">
+      <DependentUpon>PlayAudioViewUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PlayAudioViewVm.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\ObtainInfoAskRVM.cs" />
+    <Compile Include="ViewModel\QsBaseRVM.cs" />
+    <Compile Include="ViewModel\EssayChoiceRVM.cs" />
+    <Compile Include="ViewModel\DiaChoiceRVM.cs" />
+    <Compile Include="ViewModel\ObtainInfoRVM.cs" />
+    <Compile Include="ViewModel\SpokenRightAnswerRVM.cs" />
+    <Compile Include="ViewModel\SpokenOesyRVM.cs" />
+    <Compile Include="ViewModel\ReadSentenceRVM.cs" />
+    <Compile Include="ViewModel\SpokenScneRVM.cs" />
+    <Compile Include="ViewModel\SpokenPredRVM.cs" />
+    <Compile Include="ViewModel\SubItem\SubObtainInfoRVM.cs" />
+    <Compile Include="ViewModel\SubItem\SubSpokenScneRVM.cs" />
+    <Compile Include="ViewModel\SubItem\SubSpokenRightAnswerRVM.cs" />
+    <Compile Include="ViewModel\SubItem\SubReadSentenceRVM.cs" />
+    <Compile Include="ViewModel\SubItem\SubImageChoiceRVM.cs" />
+    <Compile Include="ViewModel\SubItem\SubTextChoiceRVM.cs" />
+    <Compile Include="ViewModel\SingleChoiceRVM.cs" />
+    <Compile Include="View\EssayChoiceRV.xaml.cs">
+      <DependentUpon>EssayChoiceRV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DiaChoiceRV.xaml.cs">
+      <DependentUpon>DiaChoiceRV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ObtainInfoAskRV.xaml.cs">
+      <DependentUpon>ObtainInfoAskRV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ObtainInfoRV.xaml.cs">
+      <DependentUpon>ObtainInfoRV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SpokenRightAnswerRV.xaml.cs">
+      <DependentUpon>SpokenRightAnswerRV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SpokenOesyRV.xaml.cs">
+      <DependentUpon>SpokenOesyRV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReadSentenceRV.xaml.cs">
+      <DependentUpon>ReadSentenceRV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SpokenScneRV.xaml.cs">
+      <DependentUpon>SpokenScneRV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SpokenPredRV.xaml.cs">
+      <DependentUpon>SpokenPredRV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SingleChoiceRV.xaml.cs">
+      <DependentUpon>SingleChoiceRV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SubItem\SubObtainInfoRV.xaml.cs">
+      <DependentUpon>SubObtainInfoRV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SubItem\SubSpokenScneRV.xaml.cs">
+      <DependentUpon>SubSpokenScneRV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SubItem\SubSpokenRightAnswerRV.xaml.cs">
+      <DependentUpon>SubSpokenRightAnswerRV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SubItem\SubReadSentenceRV.xaml.cs">
+      <DependentUpon>SubReadSentenceRV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SubItem\SubImageChoiceRV.xaml.cs">
+      <DependentUpon>SubImageChoiceRV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SubItem\SubTextChoiceRV.xaml.cs">
+      <DependentUpon>SubTextChoiceRV.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\PlayAudioViewUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\EssayChoiceRV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DiaChoiceRV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ObtainInfoAskRV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ObtainInfoRV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SpokenRightAnswerRV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SpokenOesyRV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ReadSentenceRV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SpokenScneRV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SpokenPredRV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SingleChoiceRV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SubItem\SubObtainInfoRV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SubItem\SubSpokenScneRV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SubItem\SubSpokenRightAnswerRV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SubItem\SubReadSentenceRV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SubItem\SubImageChoiceRV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SubItem\SubTextChoiceRV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Framework.Logging\Framework.Logging.csproj">
+      <Project>{90254545-27C0-49BF-AE33-AFC88F540D44}</Project>
+      <Name>Framework.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MahApps.Metro\MaterialDesignColors.Wpf\MaterialDesignColors.Wpf.csproj">
+      <Project>{90b53209-c60c-4655-b28d-a1b3e1044ba3}</Project>
+      <Name>MaterialDesignColors.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MahApps.Metro\MaterialDesignThemes.Wpf\MaterialDesignThemes.Wpf.csproj">
+      <Project>{f079fb0a-a8ed-4216-b6a5-345756751a04}</Project>
+      <Name>MaterialDesignThemes.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ST.Common\ST.Common.csproj">
+      <Project>{A4DB45BA-324E-47F6-929B-7B674A45AA78}</Project>
+      <Name>ST.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ST.Models\ST.Models.csproj">
+      <Project>{D7D555A0-0466-41F9-9863-04A2FA40D185}</Project>
+      <Name>ST.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ST.Style\ST.Style.csproj">
+      <Project>{afa91376-14b6-4310-afcf-2d61c2c1bdb9}</Project>
+      <Name>ST.Style</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
